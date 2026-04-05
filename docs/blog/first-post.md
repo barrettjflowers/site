@@ -6,4 +6,4 @@ layout: default
 
 # My First Post
 
-This is my first blog post!
+This is my first blog post on my website. Hello World.

@@ -3,6 +3,6 @@ title: Home
 layout: default
 ---
 
-# Welcome
+# barrett flowers
 
-Welcome to my site!
+Welcome to my site.
