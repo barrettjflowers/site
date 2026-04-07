@@ -9,7 +9,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   background-color: #141915;
-  background-image: url('../static/bg.jpg');
+  background-image: url('/static/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
