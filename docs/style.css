@@ -5,64 +5,113 @@
 }
 
 body {
-  font-family: Menlo, Monaco, 'Courier New', monospace;
+  font-family: Menlo, monospace;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #f5f5f5;
-  color: #1a1a1a;
+  background-color: #141915;
+  color: #7E857C;
   padding: 40px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.layout {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1600px;
 }
 
-.header {
-  border: 3px solid #1a1a1a;
-  padding: 20px;
-  margin-bottom: 20px;
+.container{
+  border: 2px solid #7E857C;
+  padding: 30px;
+  flex: 1;
+  min-width: 0;
+  max-width: 500px;
 }
 
-.header h1 {
+.container header {
+  margin-bottom: 30px;
+}
+
+.container header h1 {
   font-size: 24px;
   font-weight: normal;
   text-transform: lowercase;
-  letter-spacing: 1px;
 }
 
-.content {
-  border: 3px solid #1a1a1a;
+.container section {
+  margin-bottom: 30px;
+}
+
+.container section:last-child {
+  margin-bottom: 0;
+}
+
+.vault {
+  border: 2px solid #7E857C;
   padding: 20px;
-  margin-bottom: 20px;
-  background-color: #fff;
+  flex-shrink: 0;
+  width: 200px;
 }
 
-.content p {
-  margin: 0;
-}
-
-.nav {
-  border: 3px solid #1a1a1a;
+.graph {
+  border: 2px solid #7E857C;
   padding: 20px;
-}
-
-.nav a {
-  color: #1a1a1a;
-  text-decoration: none;
-  text-transform: lowercase;
-}
-
-.nav a:hover {
-  background-color: #1a1a1a;
-  color: #f5f5f5;
+  flex-shrink: 0;
+  width: 200px;
 }
 
 a {
+  color: #7E857C;
   text-decoration: underline;
 }
 
 a:hover {
   background-color: #1a1a1a;
   color: #f5f5f5;
+}
+
+.user {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.search {
+	width: 230px;
+  position: absolute;
+  top: 4em;
+  left: 10px;
+	color: #7E857C;
+  background-color: #141915;
+  border: 2px solid #7E857C;
+  padding: 5px;
+}
+
+.date {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.divider {
+  position: absolute;
+  top: 6em;
+  left: 0;
+  width: 100%;
+  border: none;
+  border-top: 2px solid #7E857C;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  cursor: pointer;
 }
