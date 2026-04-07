@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>barrettjflowers</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
 <body>
@@ -39,8 +40,15 @@
 				I like photography and writing going for long walks in nature and thinking.
 				Listen to an absurd about of music and make stuff all the time.
 				Avid learner and academic. I like my friends.
+
+				I'll clean this up later :)
 			
 				</p>
+      </section>
+
+			<section>
+        <h2>→ projects</h2>
+				weird swift shell bindings thing that kinda works
       </section>
 
       <section>
@@ -53,10 +61,76 @@
 
     <section class="graph">
 			<h2>→ graph</h2>
-      <p> * index.html---first-post.md
-
-			</p>
+      <div id="graph-container"></div>
     </section>
   </div>
+
+  <script>
+    const nodes = [
+      { id: "index.html", type: "file" },
+      { id: "first-post.md", type: "file" },
+      { id: "style.css", type: "file" },
+      { id: "blog", type: "folder" },
+      { id: "images", type: "folder" }
+    ];
+
+    const links = [
+      { source: "index.html", target: "first-post.md" },
+      { source: "index.html", target: "style.css" },
+      { source: "blog", target: "first-post.md" },
+      { source: "index.html", target: "images" }
+    ];
+
+    const width = 170, height = 180;
+    const svg = d3.select("#graph-container")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const simulation = d3.forceSimulation(nodes)
+      .force("link", d3.forceLink(links).id(d => d.id).distance(40))
+      .force("charge", d3.forceManyBody().strength(-100))
+      .force("center", d3.forceCenter(width / 2 - 20, height / 2));
+
+    const link = svg.append("g")
+      .selectAll("line")
+      .data(links)
+      .join("line")
+      .attr("stroke", "#7E857C")
+      .attr("stroke-width", 1);
+
+    const node = svg.append("g")
+      .selectAll("circle")
+      .data(nodes)
+      .join("circle")
+      .attr("r", 6)
+      .attr("fill", "#7E857C");
+
+    const label = svg.append("g")
+      .selectAll("text")
+      .data(nodes)
+      .join("text")
+      .text(d => d.id)
+      .attr("font-size", "8px")
+      .attr("fill", "#7E857C")
+      .attr("x", 8)
+      .attr("y", 3);
+
+    simulation.on("tick", () => {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      node
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      label
+        .attr("x", d => d.x + 8)
+        .attr("y", d => d.y + 3);
+    });
+  </script>
 </body>
 </html>
