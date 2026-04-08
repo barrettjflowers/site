@@ -31,12 +31,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text);
   padding: 40px 20px;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -48,6 +46,7 @@ body {
   justify-content: space-between;
   width: 100%;
   max-width: 1600px;
+  margin-top: 120px;
 }
 
 .container{
@@ -55,7 +54,7 @@ body {
   padding: 30px;
   flex: 1;
   min-width: 0;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .container header {

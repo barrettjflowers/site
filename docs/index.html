@@ -26,10 +26,7 @@
       <p><a href="./blog/first-post">first-post.md</a></p>
       <p>gallery.md</p>
       <p>films.md</p>
-      <p>article2.md</p>
-      <p>article3.md</p>
-      <p>article4.md</p>
-      <p>article5.md</p>
+      <p>book-recs.md</p>
     </section>
 
     <main class="container">
@@ -38,26 +35,23 @@
       </header>
       
       <section>
-        <p>I have no idea what to put here I like programming. I read a lot.
-				I like photography and writing going for long walks in nature and thinking.
-				Listen to an absurd about of music and make stuff all the time.
-				Avid learner and academic. I like my friends.
-
-				I'll clean this up later :)
-			
-				</p>
+        <p>I'm a software engineer who's usually building something while thinking about a dozen other things. I lean on intuition and emotional intelligence a lot, chasing high-signal over noise. I'm drawn to stuff that feels cohesive, meaningful, and purposeful, and I like approaching things with an academic mindset.</p>
+        <p>When I'm not doing that, I'm probably out walking, taking photos, or letting my brain wander. Always chasing new ideas, random rabbit holes, or whatever project catches my attention—some actually useful, some just for fun.</p>
+        <p>My tastes are all over the place—<i>Dune</i>, <i>Dorian Gray</i>, <i>The Strength of the Few</i>, <i>Dawson's Creek</i>, <i>Gilmore Girls</i>, <i>Princess Mononoke</i>, <i>The Lord of the Rings</i>. I also jot down film ideas and scenes whenever inspiration hits. Deep, atmospheric, or even philosophical? I'm there.</p>
+        <p>I care about good tools, clean spaces, and the people I hang with. Most of what I do comes from curiosity and just trying to make things that feel right.</p>
       </section>
 
 			<section>
         <h2>→ projects</h2>
-				weird swift shell bindings thing that kinda works
+				<p><a href="https://github.com/barrettjflowers/swifter">swifter</a> - swift shell bindings </p>
+				<p><a href="https://github.com/barrettjflowers/biblia.ctx">biblia.ctx</a> - chronological context engine</p>
       </section>
 
       <section>
         <h2>→ contact</h2>
-        <p>github: barrettjflowers</p>
+        <p>github: <a href="https://github.com/barrettjflowers" target="_blank">barrettjflowers</a></p>
         <p>telegram: @barrettjflowers</p>
-        <p>email: barrettjflowers(at)gmail(dot)com</p>
+        <p>email: <a href="#" onclick="navigator.clipboard.writeText('barrettjflowers@gmail.com'); this.textContent = 'copied!'; setTimeout(() => this.textContent = 'barrettjflowers(at)gmail(dot)com', 1500); return false;">barrettjflowers(at)gmail(dot)com</a></p>
       </section>
     </main>
 
@@ -80,15 +74,13 @@
       { id: "index.html", type: "file" },
       { id: "first-post.md", type: "file" },
       { id: "style.css", type: "file" },
-      { id: "blog", type: "folder" },
-      { id: "images", type: "folder" }
+      { id: "static", type: "folder" }
     ];
 
     const links = [
       { source: "index.html", target: "first-post.md" },
       { source: "index.html", target: "style.css" },
-      { source: "blog", target: "first-post.md" },
-      { source: "index.html", target: "images" }
+      { source: "index.html", target: "static" }
     ];
 
     const width = 170, height = 180;
