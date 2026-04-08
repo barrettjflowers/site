@@ -12,7 +12,7 @@
 
 <h2 class="user">@barrettjflowers</h2>
 <input type="search" placeholder="search" class="search">
-<p class="date"><span id="visitor-count">...</span> · Tue, 8 Apr 2026 · 2 min read</p>
+<p class="date"><a href="https://88x31.lol"><img src="https://88x31.lol/counter4-simple.gif" alt="88x31 - Visitor counter" width="88" height="31" /></a> · Tue, 8 Apr 2026 · 2 min read</p>
 <svg class="theme-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
   <circle cx="12" cy="12" r="5" class="sun"></circle>
   <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
@@ -60,14 +60,6 @@
       <div id="graph-container"></div>
     </section>
   </div>
-
-  <script>
-    const KEY = 'barrettjflowers-site';
-    fetch(`https://api.counterapi.dev/v1/${KEY}/increase`)
-      .then(res => res.json())
-      .then(data => document.getElementById('visitor-count').textContent = data.count + ' visitors')
-      .catch(() => document.getElementById('visitor-count').textContent = '0 visitors');
-  </script>
 
   <script>
     const nodes = [
