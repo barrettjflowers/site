@@ -11,16 +11,11 @@
 [data-theme="dark"] {
   --bg: #141915;
   --bg-image: url('/static/bg.jpg');
-}
-
-[data-theme="light"] {
-  --bg: #f5f5f5;
-  --bg-image: none;
-  --text: #333333;
-  --border: #333333;
-  --input-bg: #ffffff;
-  --link-hover-bg: #e0e0e0;
-  --link-hover-text: #000000;
+  --text: #7E857C;
+  --border: #7E857C;
+  --input-bg: #141915;
+  --link-hover-bg: #1a1a1a;
+  --link-hover-text: #f5f5f5;
 }
 
 * {
