@@ -1,3 +1,21 @@
+:root {
+  --bg: #141915;
+  --text: #7E857C;
+  --border: #7E857C;
+  --input-bg: #141915;
+  --link-hover-bg: #1a1a1a;
+  --link-hover-text: #f5f5f5;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --text: #333333;
+  --border: #333333;
+  --input-bg: #ffffff;
+  --link-hover-bg: #e0e0e0;
+  --link-hover-text: #000000;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,18 +26,19 @@ body {
   font-family: Menlo, monospace;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #141915;
+  background-color: var(--bg);
   background-image: url('/static/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #7E857C;
+  color: var(--text);
   padding: 40px 20px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .layout {
@@ -32,7 +51,7 @@ body {
 }
 
 .container{
-  border: 2px solid #7E857C;
+  border: 2px solid var(--border);
   padding: 30px;
   flex: 1;
   min-width: 0;
@@ -58,27 +77,27 @@ body {
 }
 
 .vault {
-  border: 2px solid #7E857C;
+  border: 2px solid var(--border);
   padding: 20px;
   flex-shrink: 0;
   width: 200px;
 }
 
 .graph {
-  border: 2px solid #7E857C;
+  border: 2px solid var(--border);
   padding: 20px;
   flex-shrink: 0;
   width: 200px;
 }
 
 a {
-  color: #7E857C;
+  color: var(--text);
   text-decoration: underline;
 }
 
 a:hover {
-  background-color: #1a1a1a;
-  color: #f5f5f5;
+  background-color: var(--link-hover-bg);
+  color: var(--link-hover-text);
 }
 
 .user {
@@ -88,13 +107,13 @@ a:hover {
 }
 
 .search {
-	width: 230px;
+  width: 230px;
   position: absolute;
   top: 4em;
   left: 10px;
-	color: #7E857C;
-  background-color: #141915;
-  border: 2px solid #7E857C;
+  color: var(--text);
+  background-color: var(--input-bg);
+  border: 2px solid var(--border);
   padding: 5px;
 }
 
@@ -110,7 +129,7 @@ a:hover {
   left: 0;
   width: 100%;
   border: none;
-  border-top: 2px solid #7E857C;
+  border-top: 2px solid var(--border);
 }
 
 .theme-toggle {
@@ -119,3 +138,9 @@ a:hover {
   right: 10px;
   cursor: pointer;
 }
+
+.sun { display: none; }
+.moon { display: block; }
+
+[data-theme="light"] .sun { display: block; }
+[data-theme="light"] .moon { display: none; }
