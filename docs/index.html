@@ -63,9 +63,9 @@
 
   <script>
     const KEY = 'barrettjflowers-site';
-    fetch(`https://api.count.center/hit/${KEY}`)
+    fetch(`https://api.counterapi.dev/v1/${KEY}/increase`)
       .then(res => res.json())
-      .then(data => document.getElementById('visitor-count').textContent = data.value + ' visitors')
+      .then(data => document.getElementById('visitor-count').textContent = data.count + ' visitors')
       .catch(() => document.getElementById('visitor-count').textContent = '0 visitors');
   </script>
 
