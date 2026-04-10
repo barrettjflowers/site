@@ -151,6 +151,33 @@ a:hover {
   outline: none;
 }
 
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 2px solid var(--border);
+  border-top: none;
+  background-color: var(--input-bg);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.search-dropdown-item {
+  padding: 8px 10px;
+  color: var(--text);
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.search-dropdown-item:hover,
+.search-dropdown-item.selected {
+  background-color: var(--link-hover-bg);
+  color: var(--link-hover-text);
+}
+
 .search::-webkit-selection,
 .search::selection {
   background: transparent;

@@ -27,7 +27,7 @@
     <section class="vault">
 			<h2>→ vault</h2>
       <p><a href="./blog/first-post">first-post.md</a></p>
-      <p>gallery.md</p>
+      <p><a href="./gallery">gallery.md </a></p>
       <p>films.md</p>
       <p>book-recs.md</p>
     </section>
@@ -154,6 +154,113 @@
   const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   const shortcutSpan = document.getElementById('search-shortcut');
   shortcutSpan.textContent = isMac ? '⌘ k' : 'ctrl k';
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      document.getElementById('search-input').focus();
+    }
+  });
+
+  const searchInput = document.getElementById('search-input');
+  const vaultLinks = document.querySelectorAll('.vault a');
+
+  let dropdown = document.createElement('div');
+  dropdown.className = 'search-dropdown';
+  dropdown.style.display = 'none';
+  searchInput.parentElement.appendChild(dropdown);
+
+  let selectedIndex = -1;
+
+  function showDropdown(items) {
+    dropdown.innerHTML = '';
+    selectedIndex = -1;
+    if (items.length === 0) {
+      dropdown.style.display = 'none';
+      return;
+    }
+    items.forEach(link => {
+      const div = document.createElement('a');
+      div.className = 'search-dropdown-item';
+      div.href = link.href;
+      div.textContent = link.textContent;
+      div.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = link.href;
+      });
+      dropdown.appendChild(div);
+    });
+    dropdown.style.display = 'block';
+    const dropdownItems = getDropdownItems();
+    updateSelection(dropdownItems, 0);
+  }
+
+  function hideDropdown() {
+    dropdown.style.display = 'none';
+    selectedIndex = -1;
+  }
+
+  function getDropdownItems() {
+    return dropdown.querySelectorAll('.search-dropdown-item');
+  }
+
+  function updateSelection(items, newIndex) {
+    items.forEach((item, i) => {
+      item.classList.toggle('selected', i === newIndex);
+    });
+    selectedIndex = newIndex;
+  }
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (!query) {
+      hideDropdown();
+      return;
+    }
+    const matches = [];
+    for (const link of vaultLinks) {
+      if (link.textContent.toLowerCase().includes(query)) {
+        matches.push(link);
+      }
+    }
+    showDropdown(matches);
+  });
+
+  searchInput.addEventListener('blur', () => {
+    setTimeout(hideDropdown, 150);
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    const items = getDropdownItems();
+    const itemCount = items.length;
+
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (selectedIndex >= 0 && selectedIndex < itemCount) {
+        window.location.href = items[selectedIndex].href;
+      } else if (itemCount > 0) {
+        const query = searchInput.value.toLowerCase().trim();
+        for (const link of vaultLinks) {
+          if (link.textContent.toLowerCase().includes(query)) {
+            window.location.href = link.href;
+            return;
+          }
+        }
+      }
+    } else if (e.key === 'ArrowDown' || (e.ctrlKey && e.key.toLowerCase() === 'n')) {
+      e.preventDefault();
+      if (itemCount > 0) {
+        const newIndex = selectedIndex < itemCount - 1 ? selectedIndex + 1 : 0;
+        updateSelection(items, newIndex);
+      }
+    } else if (e.key === 'ArrowUp' || (e.ctrlKey && e.key.toLowerCase() === 'p')) {
+      e.preventDefault();
+      if (itemCount > 0) {
+        const newIndex = selectedIndex > 0 ? selectedIndex - 1 : itemCount - 1;
+        updateSelection(items, newIndex);
+      }
+    }
+  });
 </script>
 </body>
 </html>
