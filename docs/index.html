@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>barrettjflowers</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
@@ -74,19 +75,23 @@
 
   <script>
     const nodes = [
-      { id: "index.html", type: "file" },
-      { id: "first-post.md", type: "file" },
-      { id: "style.css", type: "file" },
+      { id: "index.html", type: "file", url: "./index.html" },
+      { id: "blog", type: "folder" },
+      { id: "first-post.md", type: "file", url: "./blog/first-post" },
+      { id: "style.css", type: "file", url: "./style.css" },
+      { id: "resume.html", type: "file", url: "./resume.html" },
       { id: "static", type: "folder" }
     ];
 
     const links = [
-      { source: "index.html", target: "first-post.md" },
+      { source: "index.html", target: "blog" },
+      { source: "blog", target: "first-post.md" },
       { source: "index.html", target: "style.css" },
-      { source: "index.html", target: "static" }
+      { source: "index.html", target: "static" },
+      { source: "index.html", target: "resume.html" }
     ];
 
-    const width = 170, height = 180;
+    const width = 240, height = 200;
     const svg = d3.select("#graph-container")
       .append("svg")
       .attr("width", width)
@@ -109,7 +114,11 @@
       .data(nodes)
       .join("circle")
       .attr("r", 6)
-      .attr("fill", "#7E857C");
+      .attr("fill", "#7E857C")
+      .style("cursor", "pointer")
+      .on("click", (event, d) => {
+        if (d.url) window.location.href = d.url;
+      });
 
     const label = svg.append("g")
       .selectAll("text")
@@ -262,6 +271,8 @@
       }
     }
   });
+
+  GitHubCalendar(".calendar", "barrettjflowers", { responsive: true });
 </script>
 </body>
 </html>
