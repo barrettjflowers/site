@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>resume | barrettjflowers</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #resume-container {
+      max-width: 800px;
+      margin: 120px auto 40px;
+      padding: 40px;
+      background: #f7e8d5;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+    }
+    #resume-container * {
+      max-width: 100%;
+    }
+    #resume-container body {
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="resume-container"></div>
+  <script>
+    fetch('https://raw.githubusercontent.com/barrettjflowers/simple-resume/refs/heads/main/index.html')
+      .then(r => r.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const resume = doc.getElementById('resume');
+        document.getElementById('resume-container').appendChild(resume);
+      });
+  </script>
+</body>
+</html>
