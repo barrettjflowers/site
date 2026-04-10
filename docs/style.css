@@ -49,13 +49,13 @@ body {
   min-height: 100vh;
   position: relative;
   transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+  overflow-x: hidden;
 }
 
 .layout {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 40px;
   width: 100%;
   max-width: 1600px;
@@ -65,23 +65,26 @@ body {
 .container {
   border: 2px solid var(--border);
   padding: 30px;
-  width: 100%;
+  min-width: 600px;
   max-width: 900px;
-  flex: 1 1 900px;
+  flex: 1 1 600px;
+  z-index: 10;
 }
 
 .vault, .graph {
   border: 2px solid var(--border);
   padding: 20px;
   min-width: 150px;
+  flex: 0 0 auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
   .vault, .graph {
     display: none;
   }
   .container {
     max-width: 100%;
+    min-width: 0;
   }
 }
 
@@ -190,6 +193,12 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+@media (max-width: 800px) {
+  .date {
+    display: none;
+  }
 }
 
 .date a img {
