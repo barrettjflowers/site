@@ -77,10 +77,10 @@
     const nodes = [
       { id: "index.html", type: "file", url: "./index.html" },
       { id: "blog", type: "folder" },
-      { id: "first-post.md", type: "file", url: "./blog/first-post" },
+      { id: "book-recs.md", type: "file", url: "./blog/book-recs" },
       { id: "style.css", type: "file", url: "./style.css" },
       { id: "resume.html", type: "file", url: "./resume.html" },
-      { id: "static", type: "folder" }
+      { id: "verbose.html", type: "file", url: "./verbose" }
     ];
 
     const links = [
@@ -88,7 +88,6 @@
       { source: "index.html", target: "verbose.html" },
       { source: "blog", target: "book-recs.md" },
       { source: "index.html", target: "style.css" },
-      { source: "index.html", target: "static" },
       { source: "index.html", target: "resume.html" }
     ];
 
@@ -101,7 +100,7 @@
     const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id(d => d.id).distance(40))
       .force("charge", d3.forceManyBody().strength(-100))
-      .force("center", d3.forceCenter(width / 2 - 20, height / 2));
+      .force("center", d3.forceCenter(width / 2 - 20, height / 2 - 10));
 
     const link = svg.append("g")
       .selectAll("line")
