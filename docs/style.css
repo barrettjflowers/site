@@ -80,10 +80,6 @@ body {
   flex: 1 1 600px;
 }
 
-.bio p + p {
-  margin-top: 1em;
-}
-
 .vault, .graph {
   border: 2px solid var(--border);
   padding: 20px;
