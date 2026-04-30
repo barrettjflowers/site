@@ -28,6 +28,16 @@
   --link-hover-text: #000000;
 }
 
+[data-theme="accessible"] {
+  --bg: #ffffff;
+  --bg-image: none;
+  --text: #000000;
+  --border: #000000;
+  --input-bg: #ffffff;
+  --link-hover-bg: #f0f0f0;
+  --link-hover-text: #000000;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -68,6 +78,10 @@ body {
   min-width: 0;
   max-width: 900px;
   flex: 1 1 600px;
+}
+
+.bio p + p {
+  margin-top: 1em;
 }
 
 .vault, .graph {
@@ -188,6 +202,44 @@ a:hover {
   color: var(--link-hover-text);
 }
 
+.legend-dropdown {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--border);
+  background-color: var(--input-bg);
+  z-index: 100;
+  padding: 0 0 8px 0;
+  min-width: 450px;
+}
+
+.legend-header {
+  padding: 10px;
+  color: var(--text);
+  font-family: Menlo, monospace;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--border);
+}
+
+.legend-item {
+  padding: 4px 10px;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  font-family: Menlo, monospace;
+  font-size: 16px;
+}
+
+.legend-key {
+  font-weight: bold;
+}
+
+.legend-desc {
+  opacity: 0.8;
+}
+
 .search::-webkit-selection,
 .search::selection {
   background: transparent;
@@ -238,3 +290,6 @@ a:hover {
 
 [data-theme="light"] .sun { display: block; }
 [data-theme="light"] .moon { display: none; }
+
+[data-theme="accessible"] .sun { display: block; }
+[data-theme="accessible"] .moon { display: none; }

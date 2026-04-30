@@ -37,17 +37,15 @@
         <h2>→ barrett flowers</h2>
       </header>
       
-      <section>
+      <section class="bio">
         <p>I'm a software engineer and academic with an insatiable curiosity. I'm usually building something abstract, while spiraling about a dozen other things that pique my interest. I lean on intuition and emotional intelligence, chasing high-signal over noise. I'm drawn to projects that feel cohesive, meaningful, and purposeful.</p>
-        <p>When I'm not doing that, I'm probably out walking, taking photos, or just letting my mind wander. I'll chase any idea that interests me—sometimes actually useful, sometimes just for fun.</p>
-        <p>My tastes are all over the place—<i>Dune</i>, <i>The Will of the Many</i>, <i>Dawson's Creek</i>, <i>Gilmore Girls</i>, <i>Princess Mononoke</i>, <i>The Lord of the Rings</i>. And typically you'll find me jotting down film ideas and scenes whenever inspiration hits. Deep, atmospheric, or even philosophical? I'm there.</p>
+        <p>When I'm not doing that, I'm probably out walking, taking photos, or just letting my mind wander. I'll chase any idea that interests me—sometimes actually useful, sometimes just for fun. My tastes are all over the place—<i>Dune</i>, <i>The Will of the Many</i>, <i>Dawson's Creek</i>, <i>Gilmore Girls</i>, <i>Princess Mononoke</i>, <i>The Lord of the Rings</i>. And typically you'll find me jotting down film ideas and scenes whenever inspiration hits. Deep, atmospheric, or even philosophical? I'm there.</p>
         <p>I care about good tools, clean spaces, and the people I spend time with. Most of what I do comes from curiosity and just trying to make things that feel right.</p>
       </section>
 
       <section>
         <h2>→ status</h2>
-				<p>reading <i>project hail mary</i></p>
-				<p>reading <i>about behaviorism</i></p>
+				<p>reading <i>project hail mary</i>.</p>
 				<p>enjoying practicing spanish.</p>
 				<p>writing a short film about connection.</p>
       </section>
@@ -150,6 +148,7 @@
 <script>
   const toggle = document.querySelector('.theme-toggle');
   const html = document.documentElement;
+  let previousNonAccessibleTheme = 'dark';
   toggle.addEventListener('click', () => {
     const current = html.getAttribute('data-theme') || 'dark';
     const next = current === 'light' ? 'dark' : 'light';
@@ -161,14 +160,32 @@
     html.setAttribute('data-theme', saved);
   }
 
-  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   const shortcutSpan = document.getElementById('search-shortcut');
-  shortcutSpan.textContent = isMac ? '⌘ k' : 'ctrl k';
+  shortcutSpan.textContent = 'f';
 
   document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    if (e.key === 'Escape') {
+      legendDropdown.style.display = 'none';
+    }
+    if (e.key === 'f' && !e.metaKey && !e.ctrlKey && document.activeElement !== searchInput) {
       e.preventDefault();
       document.getElementById('search-input').focus();
+    }
+    if (e.key === '?' && !e.metaKey && !e.ctrlKey && document.activeElement !== searchInput) {
+      e.preventDefault();
+      legendDropdown.style.display = legendDropdown.style.display === 'block' ? 'none' : 'block';
+    }
+    if (e.key === 'a' && !e.metaKey && !e.ctrlKey && document.activeElement !== searchInput) {
+      e.preventDefault();
+      const current = html.getAttribute('data-theme') || 'dark';
+      if (current === 'accessible') {
+        html.setAttribute('data-theme', previousNonAccessibleTheme);
+        localStorage.setItem('theme', previousNonAccessibleTheme);
+      } else {
+        previousNonAccessibleTheme = current;
+        html.setAttribute('data-theme', 'accessible');
+        localStorage.setItem('theme', 'accessible');
+      }
     }
   });
 
@@ -240,6 +257,10 @@
     setTimeout(hideDropdown, 150);
   });
 
+  searchInput.addEventListener('focus', () => {
+    legendDropdown.style.display = 'none';
+  });
+
   searchInput.addEventListener('keydown', (e) => {
     const items = getDropdownItems();
     const itemCount = items.length;
@@ -269,6 +290,29 @@
         const newIndex = selectedIndex > 0 ? selectedIndex - 1 : itemCount - 1;
         updateSelection(items, newIndex);
       }
+    }
+  });
+
+  const legendDropdown = document.createElement('div');
+  legendDropdown.className = 'legend-dropdown';
+  legendDropdown.style.display = 'none';
+  document.body.appendChild(legendDropdown);
+
+  function updateLegend() {
+    const currentTheme = html.getAttribute('data-theme') || 'dark';
+    const themeText = currentTheme === 'accessible' ? 'accessible' : (currentTheme === 'light' ? 'light' : 'dark');
+    legendDropdown.innerHTML = `
+      <div class="legend-header">→ legend</div>
+      <div class="legend-item"><span class="legend-key">f</span><span class="legend-desc">focus search</span></div>
+      <div class="legend-item"><span class="legend-key">?</span><span class="legend-desc">toggle this menu</span></div>
+      <div class="legend-item"><span class="legend-key">a</span><span class="legend-desc">toggle accessible light mode</span></div>
+    `;
+  }
+  updateLegend();
+
+  document.addEventListener('click', (e) => {
+    if (!legendDropdown.contains(e.target) && e.target !== searchInput) {
+      legendDropdown.style.display = 'none';
     }
   });
 
