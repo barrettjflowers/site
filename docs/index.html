@@ -17,6 +17,7 @@
   <span class="search-shortcut" id="search-shortcut"></span>
 </div>
 <p class="date"><a href="https://88x31.lol"><img src="https://88x31.lol/counter4.gif" alt="88x31 - Visitor counter" width="88" height="31" /></a> · Mon, 27 Apr 2026 · 2 min read</p>
+<span class="legend-toggle">λ ·</span>
 <svg class="theme-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
   <circle cx="12" cy="12" r="5" class="sun"></circle>
   <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
@@ -52,9 +53,6 @@
       </section>
 
 			<section>
-        <h2>→ projects</h2>
-				<p><a href="https://github.com/barrettjflowers/swifter">swifter</a> - swift shell bindings </p>
-				<p><a href="https://github.com/barrettjflowers/biblia.ctx">biblia.ctx</a> - chronological context engine</p>
       </section>
 
       <section>
@@ -148,6 +146,7 @@
 
 <script>
   const toggle = document.querySelector('.theme-toggle');
+  const legendToggle = document.querySelector('.legend-toggle');
   const html = document.documentElement;
   let previousNonAccessibleTheme = 'dark';
   toggle.addEventListener('click', () => {
@@ -299,6 +298,10 @@
   legendDropdown.style.display = 'none';
   document.body.appendChild(legendDropdown);
 
+  legendToggle.addEventListener('click', () => {
+    legendDropdown.style.display = legendDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
   function updateLegend() {
     const currentTheme = html.getAttribute('data-theme') || 'dark';
     const themeText = currentTheme === 'accessible' ? 'accessible' : (currentTheme === 'light' ? 'light' : 'dark');
@@ -312,7 +315,7 @@
   updateLegend();
 
   document.addEventListener('click', (e) => {
-    if (!legendDropdown.contains(e.target) && e.target !== searchInput) {
+    if (!legendDropdown.contains(e.target) && e.target !== searchInput && e.target !== legendToggle) {
       legendDropdown.style.display = 'none';
     }
   });
