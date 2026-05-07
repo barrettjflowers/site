@@ -1,4 +1,23 @@
-title: My Site
-description: Welcome to my site
+title: barrettjflowers
+description: Personal site and digital garden
+url: "https://barrettjflowers.dev"
 baseurl: ""
-url: "https://barrettjflowers.github.io"
+markdown: kramdown
+permalink: pretty
+
+defaults:
+  - scope:
+      path: "blog"
+    values:
+      layout: default
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+include:
+  - .well-known
+
+exclude:
+  - README.MD
+  - CNAME
