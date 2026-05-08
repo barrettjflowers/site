@@ -17,5 +17,5 @@ in diameter.
 
 The species is monoecious, with pollen and seed cones on the same plant.
 
-![costal-sequoia](https://www.etsy.com/nz/listing/4358422736/10-printable-sequoia-forest-and-ocean)
+![costal-sequoia](/static/sequoioideae.jpg)
 
