@@ -19,3 +19,8 @@ The species is monoecious, with pollen and seed cones on the same plant.
 
 ![costal-sequoia](/static/sequoioideae.jpg)
 
+### hesperocyparis macrocarpa
+A medium-sized coniferous evergreen tree, which often becomes irregular and flat-topped
+as a result of the strong winds that are typical of its native area.
+
+![hesperocyparis-macrocarpa](/static/hesperocyparis-macrocarpa.jpg)
