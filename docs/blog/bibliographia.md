@@ -12,4 +12,4 @@ layout: default
 - God Emperor of Dune -- Frank Herbert *trippy as freak*
 
 # goodreads 
-[188777919-barrett-flowers](https://www.goodreads.com/user/show/188777919-barrett-flowershttps://www.goodreads.com/user/show/188777919-barrett-flowers)
+[188777919-barrett-flowers](https://www.goodreads.com/user/show/188777919-barrett-flowers)
