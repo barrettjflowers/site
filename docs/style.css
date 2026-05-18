@@ -4,6 +4,7 @@
   --text: #7E857C;
   --border: #7E857C;
   --input-bg: #141915;
+  --section-bg: var(--bg);
   --link-hover-bg: #1a1a1a;
   --link-hover-text: #f5f5f5;
 }
@@ -14,6 +15,7 @@
   --text: #7E857C;
   --border: #7E857C;
   --input-bg: #141915;
+  --section-bg: var(--bg);
   --link-hover-bg: #1a1a1a;
   --link-hover-text: #f5f5f5;
 }
@@ -24,6 +26,7 @@
   --text: #333333;
   --border: #333333;
   --input-bg: #ffffff;
+  --section-bg: var(--bg);
   --link-hover-bg: #e0e0e0;
   --link-hover-text: #000000;
 }
@@ -34,6 +37,7 @@
   --text: #000000;
   --border: #000000;
   --input-bg: #ffffff;
+  --section-bg: var(--bg);
   --link-hover-bg: #f0f0f0;
   --link-hover-text: #000000;
 }
@@ -74,6 +78,7 @@ body {
 
 .container {
   border: 2px solid var(--border);
+  background: var(--section-bg);
   padding: 20px 30px;
   min-width: 0;
   max-width: 900px;
@@ -117,12 +122,12 @@ body {
   padding: 15px;
   overflow-x: auto;
   margin: 1em 0;
+  line-height: 1;
 }
 
 .container pre code {
   background: none;
   padding: 0;
-  line-height: 1.25;
 }
 
 .container blockquote {
@@ -145,6 +150,7 @@ body {
 
 .vault, .graph {
   border: 2px solid var(--border);
+  background: var(--section-bg);
   padding: 20px;
   min-width: 150px;
   flex: 0 0 auto;
