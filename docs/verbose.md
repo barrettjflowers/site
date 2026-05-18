@@ -3,7 +3,7 @@ title: verbose
 layout: default
 ---
 
-# → verbose
+# verbose
 
 For those of you that actually read man pages: here's a bunch of useless information about my personal.
 
