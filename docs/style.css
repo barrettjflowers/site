@@ -338,15 +338,15 @@ a:hover {
 
 .theme-toggle {
   position: absolute;
-  top: 60px;
-  right: 15px;
+  top: 61px;
+  right: 65px;
   cursor: pointer;
 }
 
 .legend-toggle {
   position: absolute;
-  top: 55px;
-  right: 45px;
+  top: 53px;
+  right: 15px;
   cursor: pointer;
   color: var(--text);
   font-family: Menlo, monospace;
