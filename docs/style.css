@@ -97,6 +97,8 @@ body {
 
 .container p { margin-bottom: 1em; }
 
+.verbose.container p { margin-bottom: 0; }
+
 .container ul,
 .container ol {
   margin: 0 0 1em 1.5em;
