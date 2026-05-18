@@ -1,59 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+title: verbose
+layout: default
+---
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>barrettjflowers</title>
-	<link rel="stylesheet" href="style.css">
-</head>
+# → verbose
 
-<body>
+For those of you that actually read man pages: here's a bunch of useless information about my personal.
 
-	<div class="layout">
+City: Indianapolis<br>
+Timezone: UTC−05:00<br>
+Age: 23<br>
+Zshrc: [.zshrc](https://github.com/barrettjflowers/dotfiles/blob/main/.zshrc)<br>
+Neovim Config: [github.com/barrettjflowers/dotfiles](https://github.com/barrettjflowers/dotfiles)
 
-		<main class="container verbose" style="transform: translateY(-50px);">
-			<header>
-				<h2>→ verbose</h2>
-			</header>
+### language
+Engish Proficiency: Fluent<br>
+Spanish Proficiency: Limited<br>
+Mandarin Proficiency: Limited
 
-			<section>
+Favorite Movie: The Fellowship of the Ring<br>
+Favorite Band: Pink Floyd<br>
+Favorite Game: Breath of the Wild<br>
+Favorite Show: Gilmore Girls<br>
+Favorite Subject in School: Biology<br>
+Camera: Fujiflm X-Pro 2<br>
+Favorite Lens: Voigtländer Nokton 23mm f/1.2
 
-				<p style="margin-bottom: 1em;">
-					For those of you that actually read man pages:
-					here's a bunch of useless information about my personel.
-				</p>
- 
-					<p>City: Indianapolis</p>
-          <p>Timezone: UTC−05:00</p>
-          <p>Age: 23</p>
-					<p>Zshrc: <a href="https://github.com/barrettjflowers/dotfiles/blob/main/.zshrc">.zshrc</a></p>
-					<p style="margin-bottom: 1em;">Neovim Config: <a href="https://github.com/barrettjflowers/dotfiles">github.com/barrettjflowers/dotfiles</a></p>
+### (un)socials
+Spotify: [xvuzhg9r9v63fug8j7rslajzl](https://open.spotify.com/user/xvuzhg9r9v63fug8j7rslajzl?si=3e207cbe5577483a)<br>
+Pinterest: [pinterst.com/barrettjflowers](https://www.pinterest.com/barrettjflowers/)
 
+### projects
+[betterpwa](https://github.com/barrettjflowers/betterpwa) - swift native pwa exporter<br>
+[biblia.ctx](https://github.com/barrettjflowers/biblia.ctx) - chronological context engine
 
-					<h3>language</h3>
-					<p>Engish Proficiency: Fluent<br>
-					Spanish Proficiency: Limited<br>
-					Mandarin Proficiency: Limited</p>
-
-					<p>Favorite Movie: The Fellowship of the Ring<br>
-					Favorite Band: Pink Floyd<br>
-					Favorite Game: Breath of the Wild<br>
-					Favorite Show: Gilmore Girls<br>
-					Favorite Subject in School: Biology<br>
-					Camera: Fujiflm X-Pro 2<br>
-					Favorite Lens: Voigtländer Nokton 23mm f/1.2</p>
-
-					<h3>(un)socials</h3>
-					<p>Spotify: <a href="https://open.spotify.com/user/xvuzhg9r9v63fug8j7rslajzl?si=3e207cbe5577483a">xvuzhg9r9v63fug8j7rslajzl</a></p>
-					<p style="margin-bottom: 1em;">Pinterest: <a href="https://www.pinterest.com/barrettjflowers/">pinterst.com/barrettjflowers</a></p>
-
-          <h3>projects</h3>
-  				<p><a href="https://github.com/barrettjflowers/betterpwa">betterpwa</a> - swift native pwa exporter </p>
-  				<p><a href="https://github.com/barrettjflowers/biblia.ctx">biblia.ctx</a> - chronological context engine</p>
-
-					<pre style="line-height: 20px; margin-top: 2em;">
-
+```
 ⠀⠀⠀⠀⠀⣀⡤⠖⠛⠋⠉⠉⠀⠉⠁⠲⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⣀⣼⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⢀⣶⠋⠀⠀⠀⠀⢀⣠⡤⠖⠒⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -75,12 +56,4 @@
 ⠀⠀⠀⠀⣸⠷⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠺⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢿⣁⠀⠀⠀⠀⢀⣿⠀⠀⠀⠀⠘⣧⡀⠀⣀⣀⣠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠉⠉⠉⠙⠛⠋⠁⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-					</pre>
- 
-			</section>
-
-		</main>
-
-	</div>
-
-</html>
+```
