@@ -81,7 +81,7 @@
               data-reactions-enabled="1"
               data-emit-metadata="0"
               data-input-position="top"
-              data-theme="noborder_gray"
+              data-theme="https://barrettjflowers.dev/static/giscus-dark.css"
               data-lang="en"
               crossorigin="anonymous"
               async>
@@ -340,11 +340,11 @@
 
   function setGiscusTheme(theme) {
     const map = {
-      dark: 'noborder_gray',
-      light: 'noborder_light',
-      accessible: 'light_high_contrast'
+      dark: 'https://barrettjflowers.dev/static/giscus-dark.css',
+      light: 'https://barrettjflowers.dev/static/giscus-light.css',
+      accessible: 'https://barrettjflowers.dev/static/giscus-light.css'
     };
-    const giscusTheme = map[theme] || 'noborder_gray';
+    const giscusTheme = map[theme] || 'https://barrettjflowers.dev/static/giscus-dark.css';
     const iframe = document.querySelector('iframe.giscus-frame');
     if (iframe && iframe.contentWindow) {
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');
