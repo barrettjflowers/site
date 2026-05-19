@@ -106,3 +106,32 @@ main .pagination-loader-container {
 main .gsc-loading-image {
   background-image: url(https://github.githubassets.com/images/mona-loading-dark.gif);
 }
+
+main .gsc-comment-box,
+main .gsc-comment-box-textarea,
+main .gsc-tabs,
+main .gsc-replies,
+main .gsc-reply-box,
+main .gsc-input-box,
+main .gsc-comment,
+main .gsc-social-reaction,
+main .gsc-comment-box-tabs,
+main .gsc-tab,
+main .BtnGroup,
+main .BtnGroup-item,
+main .dropdown-menu,
+main .gsc-reply-box-textarea,
+main .gsc-comment-box .gsc-comment-box-textarea,
+main .gsc-comment-box .gsc-comment-box-textarea:focus,
+main .form-control,
+main .form-control:focus,
+main button,
+main .btn,
+main .btn:focus,
+main .btn-primary,
+main .avatar,
+main .avatar-circle,
+main .rounded-1,
+main .rounded-2 {
+  border-radius: 0 !important;
+}
