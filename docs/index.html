@@ -70,6 +70,23 @@
 			<h2>→ graph</h2>
       <div id="graph-container"></div>
     </section>
+
+    <section class="comments">
+      <h2>→ comments</h2>
+      <script src="https://giscus.app/client.js"
+              data-repo="barrettjflowers/site"
+              data-repo-id="R_kgDOR5-SYw"
+              data-mapping="number"
+              data-term="1"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="top"
+              data-theme="noborder_gray"
+              data-lang="en"
+              crossorigin="anonymous"
+              async>
+      </script>
+    </section>
   </div>
 
   <script>
@@ -158,6 +175,7 @@
     const next = current === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+    setGiscusTheme(next);
   });
   const saved = localStorage.getItem('theme');
   if (saved) {
@@ -185,10 +203,12 @@
       if (current === 'accessible') {
         html.setAttribute('data-theme', previousNonAccessibleTheme);
         localStorage.setItem('theme', previousNonAccessibleTheme);
+        setGiscusTheme(previousNonAccessibleTheme);
       } else {
         previousNonAccessibleTheme = current;
         html.setAttribute('data-theme', 'accessible');
         localStorage.setItem('theme', 'accessible');
+        setGiscusTheme('accessible');
       }
     }
   });
@@ -317,6 +337,36 @@
     `;
   }
   updateLegend();
+
+  function setGiscusTheme(theme) {
+    const map = {
+      dark: 'noborder_gray',
+      light: 'noborder_light',
+      accessible: 'light_high_contrast'
+    };
+    const giscusTheme = map[theme] || 'noborder_gray';
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');
+    }
+  }
+
+  function initGiscusTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved && saved !== 'dark') {
+      const maxRetries = 15;
+      let retries = 0;
+      const tryUpdate = setInterval(() => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe || retries >= maxRetries) {
+          clearInterval(tryUpdate);
+          if (iframe) setGiscusTheme(saved);
+        }
+        retries++;
+      }, 500);
+    }
+  }
+  initGiscusTheme();
 
   document.addEventListener('click', (e) => {
     if (!legendDropdown.contains(e.target) && e.target !== searchInput && e.target !== legendToggle) {

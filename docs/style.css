@@ -68,6 +68,7 @@ body {
 
 .layout {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
@@ -156,6 +157,21 @@ body {
   flex: 0 0 auto;
 }
 
+.comments {
+	transform: translate(-42px, -45px);
+  flex: 1 1 100%;
+  max-width: 900px;
+  margin-top: 40px;
+  border: 2px solid var(--border);
+  background: var(--section-bg);
+  padding: 20px 30px;
+}
+
+.comments h2 {
+  margin: 0 0 0.5em;
+  color: var(--text);
+}
+
 @media (max-width: 1250px) {
   .vault, .graph, .contributions, .contributions-graph {
     display: none;
@@ -163,6 +179,9 @@ body {
   .container {
     max-width: 100%;
     min-width: 0;
+  }
+  .comments {
+    max-width: 100%;
   }
 }
 
