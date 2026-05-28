@@ -154,6 +154,7 @@ body {
 .container img {
   max-width: 100%;
   border: 2px solid var(--border);
+  opacity: 0.8;
 }
 
 .vault, .graph {
