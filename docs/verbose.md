@@ -5,7 +5,7 @@ layout: default
 
 # verbose
 
-For those of you that actually read man pages: here's a bunch of useless information about my personal.
+For those of you that actually read man pages: here's a bunch of useless information about my personel.
 
 City: Indianapolis<br>
 Timezone: UTC−05:00<br>
@@ -29,6 +29,9 @@ Favorite Lens: Voigtländer Nokton 23mm f/1.2
 ### (un)socials
 Spotify: [xvuzhg9r9v63fug8j7rslajzl](https://open.spotify.com/user/xvuzhg9r9v63fug8j7rslajzl?si=3e207cbe5577483a)<br>
 Pinterest: [pinterst.com/barrettjflowers](https://www.pinterest.com/barrettjflowers/)
+
+### sometimes i thought dump here
+Youtube: [youtube.com/@barrettjflowers](https://www.youtube.com/@barrettjflowers)
 
 ### projects
 [betterpwa](https://github.com/barrettjflowers/betterpwa) - swift native pwa exporter<br>
