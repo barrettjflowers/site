@@ -35,7 +35,7 @@ Youtube: [youtube.com/@barrettjflowers](https://www.youtube.com/@barrettjflowers
 
 ### projects
 [betterpwa](https://github.com/barrettjflowers/betterpwa) - swift native pwa exporter<br>
-[biblia.ctx](https://github.com/barrettjflowers/biblia.ctx) - chronological context engine
+[biblia.ctx](https://barrettjflowers.github.io/biblia.ctx) - chronological context engine
 
 ```
 ⠀⠀⠀⠀⠀⣀⡤⠖⠛⠋⠉⠉⠀⠉⠁⠲⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
