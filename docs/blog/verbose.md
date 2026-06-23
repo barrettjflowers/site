@@ -4,14 +4,13 @@ layout: default
 ---
 
 # verbose
-
-For those of you that actually read man pages: here's a bunch of useless information about my personel.
+For those of you that actually read man pages, here's a bunch of useless information about my personel:
 
 City: Indianapolis<br>
 Timezone: UTC−05:00<br>
 Age: 23<br>
 Zshrc: [.zshrc](https://github.com/barrettjflowers/dotfiles/blob/main/.zshrc)<br>
-Neovim Config: [github.com/barrettjflowers/dotfiles](https://github.com/barrettjflowers/dotfiles)
+Neovim Config: [init.lua](https://github.com/barrettjflowers/dotfiles)
 
 ### language
 Engish Proficiency: Fluent<br>
