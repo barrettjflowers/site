@@ -9,7 +9,7 @@ If you're like me, you may want to run mass text manipulations, gather metrics, 
 Fortunately, thanks to [this repo](https://github.com/AndreasSko/go-library-merger) most of the heavy lifting has already been done. By building on the core of this Go library, we can parse JW Library backups. At the heart of every JW Library backup file is a SQLite database. Once you understand the schema, you can do whatever you want with the data. For example, the repo mentioned above uses that data to merge backups from different devices into a single backup.
 
 My program converts your JW Library backup into Markdown.
-https://github.com/barrettjflowers/jwtomd
+[https://github.com/barrettjflowers/jwtomd](https://github.com/barrettjflowers/jwtomd)
 
 Really, that's it.
 The rest is up to you.
