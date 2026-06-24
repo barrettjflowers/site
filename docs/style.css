@@ -190,6 +190,8 @@ body {
   }
   .comments {
     max-width: 100%;
+    transform: none;
+    margin-top: 0;
   }
 }
 
