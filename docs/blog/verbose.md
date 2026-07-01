@@ -20,6 +20,7 @@ Mandarin Proficiency: Limited
 Favorite Movie: The Fellowship of the Ring<br>
 Favorite Band: Pink Floyd<br>
 Favorite Game: Breath of the Wild<br>
+Favorite Handheld: Nintendo Gameboy Color<br>
 Favorite Show: Gilmore Girls<br>
 Favorite Subject in School: Biology<br>
 Camera: Fujiflm X-Pro 2<br>
