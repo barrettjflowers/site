@@ -385,12 +385,12 @@ a:hover {
 .page-header .search-container { left: 22px; }
 .page-header .date { right: 1.7em; }
 .page-header .legend-toggle { right: 25px; }
-.page-header .theme-toggle { right: 75px; }
+.page-header .theme-toggle { right: 1.7em; }
 
 .theme-toggle {
   position: absolute;
   top: 61px;
-  right: 65px;
+  right: 1.7em;
   cursor: pointer;
 }
 
