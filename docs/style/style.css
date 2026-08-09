@@ -412,3 +412,103 @@ a:hover {
 
 [data-theme="accessible"] .sun { display: block; }
 [data-theme="accessible"] .moon { display: none; }
+
+/* botanicum */
+.botanicum-board {
+  position: relative;
+  min-height: 640px;
+}
+
+.plant-card {
+  position: absolute;
+  width: 360px;
+  max-width: calc(100vw - 40px);
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--border);
+  background: var(--section-bg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.plant-card.dragging {
+  cursor: grabbing;
+  z-index: 100;
+  box-shadow: 0 0 0 1px var(--border), 8px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.plant-top {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.plant-art {
+  width: 128px;
+  height: 128px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+}
+
+.plant-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  opacity: 0.85;
+}
+
+.plant-card h3 {
+  margin: 0 0 8px;
+}
+
+.plant-facts {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.plant-facts dt {
+  padding: 4px 0;
+  border-top: 1px solid var(--border);
+  color: color-mix(in srgb, var(--text) 70%, transparent);
+  font-size: 0.8em;
+}
+
+.plant-facts dd {
+  margin: 0;
+  padding: 4px 0 4px 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.plant-notes {
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  padding: 10px 12px;
+  font-size: 0.85em;
+}
+
+.plant-notes h4 {
+  margin: 0 0 6px;
+  font-size: 0.9em;
+}
+
+.plant-notes p {
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .plant-top {
+    grid-template-columns: 1fr;
+  }
+}

@@ -7,7 +7,7 @@ permalink: pretty
 
 defaults:
   - scope:
-      path: "blog"
+      path: "vault"
     values:
       layout: default
 

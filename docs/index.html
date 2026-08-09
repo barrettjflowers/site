@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>barrettjflowers</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/style.css">
   <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
@@ -30,13 +30,13 @@
     <div class="layout-row">
       <section class="vault">
         <h2>→ vault</h2>
-        <p><a href="./blog/verbose">verbose.md</a></p>
-        <p><a href="./resume">resume.html</a></p>
-        <p><a href="./blog/bibliographia">bibliographia.md</a></p>
-        <p><a href="./blog/filmography">filmography.md</a></p>
-        <p><a href="./blog/arboretum">arboretum.md</a></p>
-        <p><a href="./blog/ascii">ascii.md</a></p>
-        <p><a href="./blog/jw-to-markdown">jw-to-markdown.md</a></p>
+        <p><a href="./vault/verbose">verbose.md</a></p>
+        <p><a href="./vault/resume.html">resume.html</a></p>
+        <p><a href="./vault/bibliographia">bibliographia.md</a></p>
+        <p><a href="./vault/filmography">filmography.md</a></p>
+        <p><a href="./vault/botanicum.html">botanicum.html</a></p>
+        <p><a href="./vault/ascii">ascii.md</a></p>
+        <p><a href="./vault/jw-to-markdown">jw-to-markdown.md</a></p>
       </section>
 
       <main class="container">
@@ -47,7 +47,7 @@
           <p style="margin-bottom: 1em">When I'm not doing that, you can probably find me traveling, hiking, taking photos, or writing. </p>
           <p style="margin-bottom: 1em">My tastes are all over the place—<i>Dune</i>, <i>The Will of the Many</i>, <i>Gilmore Girls</i>, <i>Princess Mononoke</i>, <i>The Lord of the Rings</i>. Typically you'll find me jotting down film ideas and scenes whenever inspiration hits. Deep, atmospheric, or even philosophical? I'm there.</p>
           <p>I care about intentionality, good tools, interesting spaces, and the people I spend time with. Most of what I do comes from curiosity and just trying to make things that feel right.
-          <a href="./blog/verbose" target="_blank">See more...</a></p>
+          <a href="./vault/verbose" target="_blank">See more...</a></p>
         </section>
 
         <section>
@@ -65,7 +65,7 @@
           <p>github: <a href="https://github.com/barrettjflowers" target="_blank">barrettjflowers</a><br>
           telegram: <a href="https://t.me/barrettjflowers" target="_blank">@barrettjflowers</a><br>
           email: <a href="#" onclick="navigator.clipboard.writeText('mail@barrettjflowers.dev'); this.textContent = 'copied!'; setTimeout(() => this.textContent = 'mail(at)barrettjflowers(dot)dev', 1500); return false;">mail(at)barrettjflowers(dot)dev</a><br>
-          resume: <a href="./resume.html"> barrettjflowers.dev/resume </a></p>
+          resume: <a href="./vault/resume.html"> barrettjflowers.dev/resume </a></p>
         </section>
       </main>
 
@@ -95,26 +95,27 @@
   <script>
     const nodes = [
       { id: "index.html", type: "file", url: "./index.html" },
-      { id: "blog", type: "folder" },
-      { id: "bibliographia.md", type: "file", url: "./blog/bibliographia" },
-      { id: "arboretum.md", type: "file", url: "./blog/arboretum" },
-      { id: "filmography.md", type: "file", url: "./blog/filmography" },
-      { id: "style.css", type: "file", url: "./style.css" },
+      { id: "vault", type: "folder" },
+      { id: "bibliographia.md", type: "file", url: "./vault/bibliographia" },
+      { id: "botanicum.html", type: "file", url: "./vault/botanicum.html" },
+      { id: "filmography.md", type: "file", url: "./vault/filmography" },
+      { id: "style.css", type: "file", url: "./style/style.css" },
       { id: "static", type: "folder" },
       { id: "giscus-dark.css", type: "file", url: "./static/giscus-dark.css" },
       { id: "giscus-light.css", type: "file", url: "./static/giscus-light.css" },
       { id: "bg.jpg", type: "file", url: "./static/bg.jpg" },
-      { id: "resume.html", type: "file", url: "./resume.html" },
-      { id: "verbose.md", type: "file", url: "./blog/verbose" }
+      { id: "resume.html", type: "file", url: "./vault/resume.html" },
+      { id: "verbose.md", type: "file", url: "./vault/verbose" }
     ];
 
     const links = [
-      { source: "index.html", target: "blog" },
+      { source: "index.html", target: "vault" },
       { source: "index.html", target: "verbose.md" },
-      { source: "blog", target: "verbose.md" },
-      { source: "blog", target: "bibliographia.md" },
-      { source: "blog", target: "arboretum.md" },
-      { source: "blog", target: "filmography.md" },
+      { source: "vault", target: "verbose.md" },
+      { source: "vault", target: "bibliographia.md" },
+      { source: "vault", target: "botanicum.html" },
+      { source: "vault", target: "filmography.md" },
+      { source: "vault", target: "resume.html" },
       { source: "index.html", target: "style.css" },
       { source: "index.html", target: "static" },
       { source: "static", target: "giscus-dark.css" },

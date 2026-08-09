@@ -10,24 +10,26 @@ site/
 │   ├── _config.yml                # Jekyll config — title, plugins, permalink settings
 │   ├── _layouts/
 │   │   └── default.html           # Base Jekyll layout — boilerplate, back link, stylesheet
-│   ├── blog/                      # Digital garden content (Markdown posts with YAML front matter)
-│   │   ├── arboretum.md           #    trees & shrubs digital collection
+│   ├── vault/                     # Digital garden content (Markdown posts with YAML front matter)
 │   │   ├── ascii.md               #    ASCII art archive (stub)
 │   │   ├── bibliographia.md       #    book recommendations
+│   │   ├── botanicum.html         #    plant collection — draggable species cards
 │   │   ├── filmography.md         #    film/video recommendations
 │   │   ├── gallery.md             #    gallery (stub, needs content)
+│   │   ├── jw-to-markdown.md      #    jw library to markdown
+│   │   ├── resume.html            #    Resume — fetches content from barrettjflowers/simple-resume
 │   │   └── verbose.md             #    personal info, favorites, socials, projects
 │   ├── static/                    # Static assets
 │   │   ├── bg.jpg                 #    dark-theme background
 │   │   ├── bg.old                 #    previous background image
 │   │   ├── giscus-dark.css        #    Giscus comment widget — dark theme
 │   │   ├── giscus-light.css       #    Giscus comment widget — light theme
-│   │   ├── hesperocyparis-macrocarpa.jpg   # Monterey cypress photo (arboretum)
-│   │   └── sequoioideae.jpg       #     Coastal redwood photo (arboretum)
+│   │   ├── hesperocyparis-macrocarpa.jpg   # Monterey cypress photo (botanicum)
+│   │   └── sequoioideae.jpg       #     Coastal redwood photo (botanicum)
+│   ├── style/
+│   │   └── style.css              # Global stylesheet — dark/light/accessible themes
 │   ├── CNAME                      # Custom domain — barrettjflowers.dev
-│   ├── index.html                 # Homepage — bio, graph viz, search, theme toggle, comments
-│   ├── resume.html                # Resume — fetches content from barrettjflowers/simple-resume
-│   └── style.css                  # Global stylesheet — dark/light/accessible themes
+│   └── index.html                 # Homepage — bio, graph viz, search, theme toggle, comments
 └── README.md                      # This file
 ```
 
