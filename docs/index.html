@@ -35,7 +35,6 @@
         <p><a href="./vault/bibliographia">bibliographia.md</a></p>
         <p><a href="./vault/filmography">filmography.md</a></p>
         <p><a href="./vault/botanicum.html">botanicum.html</a></p>
-        <p><a href="./vault/ascii">ascii.md</a></p>
         <p><a href="./vault/jw-to-markdown">jw-to-markdown.md</a></p>
       </section>
 
@@ -84,7 +83,7 @@
                 data-reactions-enabled="1"
                 data-emit-metadata="0"
                 data-input-position="top"
-                data-theme="https://barrettjflowers.dev/static/giscus-dark.css"
+                data-theme="https://barrettjflowers.dev/style/giscus-dark.css"
                 data-lang="en"
                 crossorigin="anonymous"
                 async>
@@ -100,9 +99,10 @@
       { id: "botanicum.html", type: "file", url: "./vault/botanicum.html" },
       { id: "filmography.md", type: "file", url: "./vault/filmography" },
       { id: "style.css", type: "file", url: "./style/style.css" },
+      { id: "style", type: "folder" },
       { id: "static", type: "folder" },
-      { id: "giscus-dark.css", type: "file", url: "./static/giscus-dark.css" },
-      { id: "giscus-light.css", type: "file", url: "./static/giscus-light.css" },
+      { id: "giscus-dark.css", type: "file", url: "./style/giscus-dark.css" },
+      { id: "giscus-light.css", type: "file", url: "./style/giscus-light.css" },
       { id: "bg.jpg", type: "file", url: "./static/bg.jpg" },
       { id: "resume.html", type: "file", url: "./vault/resume.html" },
       { id: "verbose.md", type: "file", url: "./vault/verbose" }
@@ -117,9 +117,11 @@
       { source: "vault", target: "filmography.md" },
       { source: "vault", target: "resume.html" },
       { source: "index.html", target: "style.css" },
+      { source: "index.html", target: "style" },
+      { source: "style", target: "style.css" },
+      { source: "style", target: "giscus-dark.css" },
+      { source: "style", target: "giscus-light.css" },
       { source: "index.html", target: "static" },
-      { source: "static", target: "giscus-dark.css" },
-      { source: "static", target: "giscus-light.css" },
       { source: "static", target: "bg.jpg" },
       { source: "index.html", target: "resume.html" }
     ];
@@ -372,11 +374,11 @@
 
   function setGiscusTheme(theme) {
     const map = {
-      dark: 'https://barrettjflowers.dev/static/giscus-dark.css',
-      light: 'https://barrettjflowers.dev/static/giscus-light.css',
-      accessible: 'https://barrettjflowers.dev/static/giscus-light.css'
+      dark: 'https://barrettjflowers.dev/style/giscus-dark.css',
+      light: 'https://barrettjflowers.dev/style/giscus-light.css',
+      accessible: 'https://barrettjflowers.dev/style/giscus-light.css'
     };
-    const giscusTheme = map[theme] || 'https://barrettjflowers.dev/static/giscus-dark.css';
+    const giscusTheme = map[theme] || 'https://barrettjflowers.dev/style/giscus-dark.css';
     const iframe = document.querySelector('iframe.giscus-frame');
     if (iframe && iframe.contentWindow) {
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');

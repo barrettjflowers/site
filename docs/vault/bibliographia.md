@@ -5,7 +5,7 @@ layout: default
 ---
 
 # book recommendations
-- One Hundred Years of Solitude -- Gabriel García Márquez
+- East of Eden -- John Steinbeck
 - The Lord of the Rings, Return of the King -- J. R. R. Tolkien *im sorry but you have too*
 - The Will of the Many -- James Islington *fantasy roman-core*
 - Remarkably Bright Creatures -- Shelby Van Pelt
