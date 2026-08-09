@@ -11,7 +11,6 @@ site/
 │   ├── _layouts/
 │   │   └── default.html           # Base Jekyll layout — boilerplate, back link, stylesheet
 │   ├── vault/                     # Digital garden content (Markdown posts with YAML front matter)
-│   │   ├── ascii.md               #    ASCII art archive (stub)
 │   │   ├── bibliographia.md       #    book recommendations
 │   │   ├── botanicum.html         #    plant collection — draggable species cards
 │   │   ├── filmography.md         #    film/video recommendations

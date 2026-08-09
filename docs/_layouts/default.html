@@ -8,12 +8,145 @@
 </head>
 <body>
 
-<div class="layout" style="margin-top: 40px;">
+<div class="page-header">
+  <h2 class="user"><a href="{{ site.baseurl }}/">@barrettjflowers</a></h2>
+  <div class="search-container">
+    <input type="search" placeholder="search" class="search" id="search-input">
+    <span class="search-shortcut" id="search-shortcut"></span>
+  </div>
+  <p class="date"><span id="today-date"></span></p>
+  <svg class="theme-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5" class="sun"></circle>
+    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" class="moon"></path>
+  </svg>
+  <hr class="divider">
+</div>
+
+<div class="layout">
   <main class="container">
     <p><a href="{{ site.baseurl }}/">← back</a></p>
     {{ content }}
   </main>
 </div>
+
+<script>
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light' || savedTheme === 'accessible') html.setAttribute('data-theme', savedTheme);
+
+  const now = new Date();
+  const weekday = now.toLocaleDateString('en-US', { weekday: 'short' });
+  const month = now.toLocaleDateString('en-US', { month: 'long' });
+  document.getElementById('today-date').textContent = `${weekday}, ${now.getDate()} ${month} ${now.getFullYear()}`;
+
+  document.querySelector('.theme-toggle').addEventListener('click', () => {
+    const current = html.getAttribute('data-theme') || 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  const searchInput = document.getElementById('search-input');
+  const vaultLinks = [
+    { href: "{{ site.baseurl }}/vault/verbose", text: "verbose.md" },
+    { href: "{{ site.baseurl }}/vault/resume.html", text: "resume.html" },
+    { href: "{{ site.baseurl }}/vault/bibliographia", text: "bibliographia.md" },
+    { href: "{{ site.baseurl }}/vault/filmography", text: "filmography.md" },
+    { href: "{{ site.baseurl }}/vault/botanicum.html", text: "botanicum.html" },
+    { href: "{{ site.baseurl }}/vault/jw-to-markdown", text: "jw-to-markdown.md" }
+  ];
+
+  const shortcutSpan = document.getElementById('search-shortcut');
+  shortcutSpan.textContent = 'f';
+
+  let dropdown = document.createElement('div');
+  dropdown.className = 'search-dropdown';
+  dropdown.style.display = 'none';
+  searchInput.parentElement.appendChild(dropdown);
+
+  let selectedIndex = -1;
+
+  function showDropdown(items) {
+    dropdown.innerHTML = '';
+    selectedIndex = -1;
+    if (items.length === 0) {
+      dropdown.style.display = 'none';
+      return;
+    }
+    items.forEach(item => {
+      const div = document.createElement('a');
+      div.className = 'search-dropdown-item';
+      div.href = item.href;
+      div.textContent = item.text;
+      div.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = item.href;
+      });
+      dropdown.appendChild(div);
+    });
+    dropdown.style.display = 'block';
+    updateSelection(getDropdownItems(), 0);
+  }
+
+  function hideDropdown() {
+    dropdown.style.display = 'none';
+    selectedIndex = -1;
+  }
+
+  function getDropdownItems() {
+    return dropdown.querySelectorAll('.search-dropdown-item');
+  }
+
+  function updateSelection(items, newIndex) {
+    items.forEach((item, i) => {
+      item.classList.toggle('selected', i === newIndex);
+    });
+    selectedIndex = newIndex;
+  }
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (!query) {
+      hideDropdown();
+      return;
+    }
+    showDropdown(vaultLinks.filter(l => l.text.toLowerCase().includes(query)));
+  });
+
+  searchInput.addEventListener('blur', () => {
+    setTimeout(hideDropdown, 150);
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    const items = getDropdownItems();
+    const itemCount = items.length;
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (selectedIndex >= 0 && selectedIndex < itemCount) {
+        window.location.href = items[selectedIndex].href;
+      } else if (itemCount > 0) {
+        const query = searchInput.value.toLowerCase().trim();
+        const match = vaultLinks.find(l => l.text.toLowerCase().includes(query));
+        if (match) window.location.href = match.href;
+      }
+    } else if (e.key === 'ArrowDown' || (e.ctrlKey && e.key.toLowerCase() === 'n')) {
+      e.preventDefault();
+      if (itemCount > 0) updateSelection(items, (selectedIndex + 1) % itemCount);
+    } else if (e.key === 'ArrowUp' || (e.ctrlKey && e.key.toLowerCase() === 'p')) {
+      e.preventDefault();
+      if (itemCount > 0) updateSelection(items, selectedIndex <= 0 ? itemCount - 1 : selectedIndex - 1);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hideDropdown();
+    if (e.key === 'f' && !e.metaKey && !e.ctrlKey && document.activeElement !== searchInput) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
+</script>
 
 </body>
 </html>
