@@ -94,39 +94,52 @@
   <script>
     const nodes = [
       { id: "index.html", type: "file", url: "./index.html" },
+      { id: "_config.yml", type: "file" },
+      { id: "CNAME", type: "file" },
+      { id: "_layouts", type: "folder" },
+      { id: "default.html", type: "file" },
       { id: "vault", type: "folder" },
       { id: "bibliographia.md", type: "file", url: "./vault/bibliographia" },
       { id: "botanicum.html", type: "file", url: "./vault/botanicum.html" },
       { id: "filmography.md", type: "file", url: "./vault/filmography" },
-      { id: "style.css", type: "file", url: "./style/style.css" },
+      { id: "gallery.md", type: "file", url: "./vault/gallery" },
+      { id: "jw-to-markdown.md", type: "file", url: "./vault/jw-to-markdown" },
+      { id: "resume.html", type: "file", url: "./vault/resume.html" },
+      { id: "verbose.md", type: "file", url: "./vault/verbose" },
       { id: "style", type: "folder" },
-      { id: "static", type: "folder" },
+      { id: "style.css", type: "file", url: "./style/style.css" },
       { id: "giscus-dark.css", type: "file", url: "./style/giscus-dark.css" },
       { id: "giscus-light.css", type: "file", url: "./style/giscus-light.css" },
-      { id: "bg.jpg", type: "file", url: "./static/bg.jpg" },
-      { id: "resume.html", type: "file", url: "./vault/resume.html" },
-      { id: "verbose.md", type: "file", url: "./vault/verbose" }
+      { id: "static", type: "folder" },
+      { id: "bg.jpg", type: "file" },
+      { id: "sequoioideae.jpg", type: "file" },
+      { id: "hesperocyparis-macrocarpa.jpg", type: "file" }
     ];
 
     const links = [
+      { source: "index.html", target: "_config.yml" },
+      { source: "index.html", target: "CNAME" },
+      { source: "index.html", target: "_layouts" },
+      { source: "_layouts", target: "default.html" },
       { source: "index.html", target: "vault" },
-      { source: "index.html", target: "verbose.md" },
-      { source: "vault", target: "verbose.md" },
       { source: "vault", target: "bibliographia.md" },
       { source: "vault", target: "botanicum.html" },
       { source: "vault", target: "filmography.md" },
+      { source: "vault", target: "gallery.md" },
+      { source: "vault", target: "jw-to-markdown.md" },
       { source: "vault", target: "resume.html" },
-      { source: "index.html", target: "style.css" },
+      { source: "vault", target: "verbose.md" },
       { source: "index.html", target: "style" },
       { source: "style", target: "style.css" },
       { source: "style", target: "giscus-dark.css" },
       { source: "style", target: "giscus-light.css" },
       { source: "index.html", target: "static" },
       { source: "static", target: "bg.jpg" },
-      { source: "index.html", target: "resume.html" }
+      { source: "static", target: "sequoioideae.jpg" },
+      { source: "static", target: "hesperocyparis-macrocarpa.jpg" }
     ];
 
-    const width = 240, height = 240;
+    const width = 280, height = 280;
     const svg = d3.select("#graph-container")
       .append("svg")
       .attr("width", width)

@@ -14,7 +14,7 @@ Neovim Config: [init.lua](https://github.com/barrettjflowers/dotfiles)
 
 ### language
 Engish Proficiency: Fluent<br>
-Spanish Proficiency: Limited<br>
+Spanish Proficiency: Limited (in progress)<br>
 Mandarin Proficiency: Limited
 
 Favorite Movie: The Fellowship of the Ring<br>
