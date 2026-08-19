@@ -389,6 +389,9 @@ a:hover {
   width: 100%;
   height: 6.5em;
   background: var(--section-bg);
+  border: none;
+  box-shadow: none;
+  z-index: 10;
 }
 
 .page-header .user { left: 22px; }
