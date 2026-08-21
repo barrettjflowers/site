@@ -33,7 +33,7 @@
 <script>
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light' || savedTheme === 'accessible') html.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'light') html.setAttribute('data-theme', savedTheme);
 
   const dateEl = document.getElementById('today-date');
   if (dateEl) {
