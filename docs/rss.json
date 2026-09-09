@@ -1,0 +1,66 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "shower thoughts",
+  "home_page_url": "https://barrettjflowers.dev",
+  "feed_url": "https://barrettjflowers.dev/rss.json",
+  "description": "shower musings go here",
+  "authors": [{"name": "barrettjflowers"}],
+  "items": [
+    {
+      "id": "discussioncomment-10648523",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussion-10648523",
+      "title": "shower thoughts #2",
+      "content_text": "shower musings go here",
+      "date_published": "2026-08-19T18:28:14Z",
+      "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "discussioncomment-18106583",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussioncomment-18106583",
+      "title": "shower thoughts #2",
+      "content_text": "my first totally useful microblog post",
+      "date_published": "2026-08-21T13:27:23Z",
+      "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "discussioncomment-18107976",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussioncomment-18107976",
+      "title": "shower thoughts #2",
+      "content_text": "and a totally useful reply. i just fixed the light mode header and daylight savings utc time :P",
+      "date_published": "2026-08-21T15:49:23Z",
+      "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "discussioncomment-18111866",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussioncomment-18111866",
+      "title": "shower thoughts #2",
+      "content_text": "thinking a lot about what consciousness constitutes while reading diaspora",
+      "date_published": "2026-08-22T01:11:50Z",
+      "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "discussioncomment-18137545",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussioncomment-18137545",
+      "title": "shower thoughts #2",
+      "content_text": "Just found Greg Egan's website https://www.gregegan.net/.",
+      "date_published": "2026-08-24T15:50:04Z",
+      "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "discussioncomment-18201680",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussioncomment-18201680",
+      "title": "shower thoughts #2",
+      "content_text": "rss feed just for luke",
+      "date_published": "2026-08-29T20:39:29Z",
+      "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "discussioncomment-18290883",
+      "url": "https://github.com/barrettjflowers/site/discussions/2#discussioncomment-18290883",
+      "title": "shower thoughts #2",
+      "content_text": "the power of just working in a coffee shop is amazing",
+      "date_published": "2026-09-04T14:28:13Z",
+      "authors": [{"name": "barrettjflowers"}]
+    }
+  ]
+}
