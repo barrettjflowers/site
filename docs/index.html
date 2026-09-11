@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>barrettjflowers</title>
   <link rel="stylesheet" href="style/style.css">
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+  <script type="module" src="https://esm.sh/glyphcss/elements"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
@@ -28,19 +28,31 @@
 
   <div class="layout">
     <div class="layout-row">
-      <section class="vault">
-        <h2>→ vault</h2>
-        <p><a href="./vault/verbose">verbose.md</a></p>
-        <p><a href="./vault/resume.html">resume.html</a></p>
-        <p><a href="./vault/bibliographia">bibliographia.md</a></p>
-        <p><a href="./vault/filmography">filmography.md</a></p>
-        <p><a href="./vault/botanicum.html">botanicum.html</a></p>
-        <p><a href="./vault/jw-to-markdown">jw-to-markdown.md</a></p>
-        <p><a href="./rss.json">rss.json</a></p>
-      </section>
+      <div class="vault-col">
+        <section class="vault">
+          <h2>vault</h2>
+          <p><a href="./vault/verbose">verbose.md</a></p>
+          <p><a href="./vault/resume.html">resume.html</a></p>
+          <p><a href="./vault/bibliographia">bibliographia.md</a></p>
+          <p><a href="./vault/filmography">filmography.md</a></p>
+          <p><a href="./vault/botanicum.html">botanicum.html</a></p>
+          <p><a href="./vault/jw-to-markdown">jw-to-markdown.md</a></p>
+          <p><a href="./rss.json">rss.json</a></p>
+        </section>
+
+        <section class="vault glyph-scene">
+          <h2>render</h2>
+          <glyph-camera rot-x="65" rot-y="45" zoom="5">
+            <glyph-scene mode="solid" glyph-palette="detail" auto-size use-colors="false">
+              <glyph-orbit-controls drag wheel animate-speed="0.3"></glyph-orbit-controls>
+              <glyph-mesh src="static/flower.obj" auto-center></glyph-mesh>
+            </glyph-scene>
+          </glyph-camera>
+        </section>
+      </div>
 
       <main class="container">
-          <h2>→ barrett flowers</h2>
+          <h2>barrett flowers</h2>
         
         <section class="bio">
           <p style="margin-bottom: 1em">Hello! I'm a software engineer and academic with an insatiable curiosity. I'm usually building something abstract, or exploring subjects that pique my interest. I lean on intuition and childlike wonder, chasing high-signal over noise. I'm drawn to projects that feel cohesive, and meaningful.</p>
@@ -57,9 +69,6 @@
         </section>
 
         <section>
-        </section>
-
-        <section>
           <h2>contact</h2>
           <p>github: <a href="https://github.com/barrettjflowers" target="_blank">barrettjflowers</a><br>
           telegram: <a href="https://t.me/barrettjflowers" target="_blank">@barrettjflowers</a><br>
@@ -69,12 +78,12 @@
       </main>
 
       <section class="graph">
-        <h2>→ graph</h2>
+        <h2>graph</h2>
         <div id="graph-container"></div>
       </section>
 
       <section class="comments">
-        <h2>→ comments</h2>
+        <h2>comments</h2>
         <script src="https://giscus.app/client.js"
                 data-repo="barrettjflowers/site"
                 data-repo-id="R_kgDOR5-SYw"
@@ -111,10 +120,7 @@
       { id: "style.css", type: "file", url: "./style/style.css" },
       { id: "giscus-dark.css", type: "file", url: "./style/giscus-dark.css" },
       { id: "giscus-light.css", type: "file", url: "./style/giscus-light.css" },
-      { id: "static", type: "folder" },
-      { id: "bg.jpg", type: "file" },
-      { id: "sequoioideae.jpg", type: "file" },
-      { id: "hesperocyparis-macrocarpa.jpg", type: "file" }
+      { id: "static", type: "folder" }
     ];
 
     const links = [
@@ -135,10 +141,7 @@
       { source: "style", target: "style.css" },
       { source: "style", target: "giscus-dark.css" },
       { source: "style", target: "giscus-light.css" },
-      { source: "index.html", target: "static" },
-      { source: "static", target: "bg.jpg" },
-      { source: "static", target: "sequoioideae.jpg" },
-      { source: "static", target: "hesperocyparis-macrocarpa.jpg" }
+      { source: "index.html", target: "static" }
     ];
 
     const width = 280, height = 280;
@@ -367,8 +370,6 @@
     }
   }
   initGiscusTheme();
-
-  GitHubCalendar(".calendar", "barrettjflowers", { responsive: true });
 </script>
 </body>
 </html>

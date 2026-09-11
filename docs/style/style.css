@@ -158,6 +158,14 @@ body {
   box-shadow: 8px 8px 0 0 var(--link-hover-bg);
 }
 
+.vault-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 0 0 auto;
+  min-width: 200px;
+}
+
 .vault {
   padding: 20px;
 }
@@ -172,10 +180,9 @@ body {
 }
 
 .comments {
-	transform: translate(-40px, -40px);
+	transform: translate(-40px, -60px);
   flex: 1 1 600px;
   max-width: 900px;
-  margin-top: 40px;
   border: 2px solid var(--border);
   background: var(--section-bg);
   padding: 20px 30px;
@@ -188,7 +195,7 @@ body {
 }
 
 @media (max-width: 1250px) {
-  .vault, .graph, .contributions, .contributions-graph {
+  .vault, .graph, .vault-col, .contributions, .contributions-graph {
     display: none;
   }
   .container {
@@ -365,6 +372,25 @@ a:hover {
 
 [data-theme="light"] .sun { display: block; }
 [data-theme="light"] .moon { display: none; }
+
+/* glyphcss */
+.glyph-scene glyph-camera,
+.glyph-scene glyph-scene {
+  display: block;
+  width: 100%;
+  height: 340px;
+}
+
+.glyph-scene.glyph-scene glyph-scene pre {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  color: var(--text);
+  font-family: Menlo, monospace;
+  font-size: 10px;
+}
 
 /* botanicum */
 .botanicum-board {

@@ -36,7 +36,7 @@ site/
 
 - **Themes** — dark (default, forest-green bg), light, and accessible high-contrast; persisted in localStorage
 - **Graph** — D3.js force-directed graph visualizing site file structure (clickable nodes)
-- **Search** — autocomplete dropdown over vault links; `f` to focus, `?` for legend, `a` for accessibility
+- **Search** — autocomplete dropdown over vault links; `f` to focus
 - **Comments** — Giscus widget (GitHub Discussions) on the homepage
 
 ## deployment
