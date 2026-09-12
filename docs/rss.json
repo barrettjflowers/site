@@ -61,6 +61,19 @@
       "content_text": "the power of just working in a coffee shop is amazing",
       "date_published": "2026-09-04T14:28:13Z",
       "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "rssblog8",
+      "url": "https://barrettjflowers.dev/rss.json",
+      "title": "viewing obj files with ascii",
+      "content_text": "
+			found this awesome tool for viewing obj files with ascii 
+      called glyphcss https://glyphcss.com/. Just implemented
+			it om my hompage- but im already thinking of other
+			cool usecases for it.
+			",
+      "date_published": "2026-10-11T20:15:00-04:00",
+      "authors": [{"name": "barrettjflowers"}]
     }
   ]
 }
