@@ -150,7 +150,7 @@ body {
   opacity: 0.8;
 }
 
-.vault, .graph {
+.vault, .graph, .projects {
   border: 2px solid var(--border);
   background: var(--section-bg);
   min-width: 200px;
@@ -158,7 +158,7 @@ body {
   box-shadow: 8px 8px 0 0 var(--link-hover-bg);
 }
 
-.vault-col {
+.vault-col, .graph-col {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -166,7 +166,7 @@ body {
   min-width: 200px;
 }
 
-.vault {
+.vault, .projects {
   padding: 20px;
 }
 
@@ -195,7 +195,7 @@ body {
 }
 
 @media (max-width: 1250px) {
-  .vault, .graph, .vault-col, .contributions, .contributions-graph {
+  .vault, .graph, .projects, .vault-col, .graph-col, .contributions, .contributions-graph {
     display: none;
   }
   .container {
