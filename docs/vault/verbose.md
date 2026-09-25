@@ -34,10 +34,6 @@ Pinterest: [pinterst.com/barrettjflowers](https://www.pinterest.com/barrettjflow
 ### sometimes i thought dump here
 Youtube: [youtube.com/@barrettjflowers](https://www.youtube.com/@barrettjflowers)
 
-### projects
-[betterpwa](https://github.com/barrettjflowers/betterpwa) - swift native pwa exporter<br>
-[biblia.ctx](https://biblia.barrettjflowers.dev) - chronological context engine
-
 ```
 ⠀⠀⠀⠀⠀⣀⡤⠖⠛⠋⠉⠉⠀⠉⠁⠲⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀⣀⣼⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
