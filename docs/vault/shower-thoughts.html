@@ -27,18 +27,26 @@
   <main class="container">
     <p><a href="../">← back</a></p>
     <h1>shower thoughts</h1>
-    <script src="https://giscus.app/client.js"
-            data-repo="barrettjflowers/site"
-            data-repo-id="R_kgDOR5-SYw"
-            data-mapping="number"
-            data-term="2"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="https://barrettjflowers.dev/style/giscus-dark.css"
-            data-lang="en"
-            crossorigin="anonymous"
-            async>
+    <script>
+      (() => {
+        const g = document.createElement('script');
+        const theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+        Object.entries({
+          src: 'https://giscus.app/client.js',
+          'data-repo': 'barrettjflowers/site',
+          'data-repo-id': 'R_kgDOR5-SYw',
+          'data-mapping': 'number',
+          'data-term': '2',
+          'data-reactions-enabled': '1',
+          'data-emit-metadata': '0',
+          'data-input-position': 'top',
+          'data-theme': `https://barrettjflowers.dev/style/giscus-${theme}.css`,
+          'data-lang': 'en',
+          crossorigin: 'anonymous'
+        }).forEach(([k, v]) => g.setAttribute(k, v));
+        g.async = true;
+        document.currentScript.after(g);
+      })();
     </script>
   </main>
 </div>
@@ -72,20 +80,6 @@
     localStorage.setItem('theme', next);
     setGiscusTheme(next);
   });
-
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    const maxRetries = 15;
-    let retries = 0;
-    const tryUpdate = setInterval(() => {
-      const iframe = document.querySelector('iframe.giscus-frame');
-      if (iframe || retries >= maxRetries) {
-        clearInterval(tryUpdate);
-        if (iframe) setGiscusTheme(saved);
-      }
-      retries++;
-    }, 500);
-  }
 
   const searchInput = document.getElementById('search-input');
   const vaultLinks = [
