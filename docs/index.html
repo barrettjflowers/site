@@ -51,6 +51,7 @@
         </section>
       </div>
 
+      <div class="main-col">
       <main class="container">
           <h2>barrett flowers</h2>
         
@@ -63,7 +64,7 @@
 
         <section>
           <h2>status</h2>
-          <p>reading <i>Red Rising — Pierce Brown</i>.<br>
+          <p>reading <i>The Goldfinch — Donna Tartt</i>.<br>
           enjoying practicing spanish.<br>
           writing a long lived short film about connection.</p>
         </section>
@@ -77,6 +78,32 @@
         </section>
       </main>
 
+        <section class="comments">
+          <h2>comments</h2>
+          <script>
+            (() => {
+              const g = document.createElement('script');
+              const theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+              Object.entries({
+                src: 'https://giscus.app/client.js',
+                'data-repo': 'barrettjflowers/site',
+                'data-repo-id': 'R_kgDOR5-SYw',
+                'data-mapping': 'number',
+                'data-term': '1',
+                'data-reactions-enabled': '1',
+                'data-emit-metadata': '0',
+                'data-input-position': 'top',
+                'data-theme': `https://barrettjflowers.dev/style/giscus-${theme}.css`,
+                'data-lang': 'en',
+                crossorigin: 'anonymous'
+              }).forEach(([k, v]) => g.setAttribute(k, v));
+              g.async = true;
+              document.currentScript.after(g);
+            })();
+          </script>
+        </section>
+      </div>
+
       <div class="graph-col">
         <section class="graph">
           <h2>graph</h2>
@@ -89,32 +116,18 @@
           <p><a href="https://biblia.barrettjflowers.dev" target="_blank">biblia.ctx</a></p>
           <p><a href="https://indyhost.net/indygateway/" target="_blank">indygateway</a></p>
         </section>
+
+        <section class="vault glyph-scene">
+          <h2>dna</h2>
+          <glyph-camera rot-x="65" rot-y="45" zoom="5">
+            <glyph-scene mode="solid" glyph-palette="detail" auto-size use-colors="false">
+              <glyph-orbit-controls drag wheel animate-speed="0.3"></glyph-orbit-controls>
+              <glyph-mesh src="static/dna.obj" auto-center></glyph-mesh>
+            </glyph-scene>
+          </glyph-camera>
+        </section>
       </div>
 
-      <section class="comments">
-        <h2>comments</h2>
-        <script>
-          (() => {
-            const g = document.createElement('script');
-            const theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
-            Object.entries({
-              src: 'https://giscus.app/client.js',
-              'data-repo': 'barrettjflowers/site',
-              'data-repo-id': 'R_kgDOR5-SYw',
-              'data-mapping': 'number',
-              'data-term': '1',
-              'data-reactions-enabled': '1',
-              'data-emit-metadata': '0',
-              'data-input-position': 'top',
-              'data-theme': `https://barrettjflowers.dev/style/giscus-${theme}.css`,
-              'data-lang': 'en',
-              crossorigin: 'anonymous'
-            }).forEach(([k, v]) => g.setAttribute(k, v));
-            g.async = true;
-            document.currentScript.after(g);
-          })();
-        </script>
-      </section>
     </div>
   </div>
   <script>
