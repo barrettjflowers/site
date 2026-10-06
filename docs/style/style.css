@@ -441,6 +441,8 @@ a:hover {
   height: 128px;
   border: 2px solid var(--border);
   overflow: hidden;
+  background: var(--text);
+  isolation: isolate;
 }
 
 .plant-art img {
@@ -449,7 +451,14 @@ a:hover {
   object-fit: cover;
   display: block;
   border: none;
-  opacity: 0.85;
+  opacity: 1;
+  filter: grayscale(1) brightness(1.8) contrast(2.2);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .plant-art img {
+  filter: grayscale(1) brightness(1.8) contrast(2.2) invert(1);
+  mix-blend-mode: screen;
 }
 
 .plant-card h3 {

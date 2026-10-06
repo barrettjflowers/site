@@ -69,6 +69,14 @@
       "content_text": "found this awesome tool for viewing obj files with ascii called glyphcss https://glyphcss.com/. Just implemented it on my homepage- but im already thinking of other cool usecases for it.",
       "date_published": "2026-09-12T00:22:00Z",
       "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "rssblog9",
+      "url": "https://barrettjflowers.dev/rss.json",
+      "title": "a new chapter",
+      "content_text": "just met up with a friend who is getting her masters- and this subtly makes me wonder if i should've kept going to school. i think either way i've learned a lot- think im just ready for a new chapter...",
+      "date_published": "2026-10-06T00:54:00Z",
+      "authors": [{"name": "barrettjflowers"}]
     }
   ]
 }
