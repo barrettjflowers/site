@@ -7,14 +7,14 @@ permalink: /vault/photography.html
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>photography | barrettjflowers</title>
+  <title>portfolio | barrettjflowers</title>
   <link rel="stylesheet" href="../style/style.css">
   <style>
     /* photography: darker, full-bleed gallery treatment */
     body.photo-page { background-image: none; background-color: #0b0d0b; }
     [data-theme="light"] body.photo-page { background-color: #ececec; }
 
-    .photo-intro { max-width: 900px; margin: 0 auto 1.5rem; }
+    .photo-intro { max-width: 900px; margin: 95px auto 1.5rem; }
     .photo-intro h1 { margin: .5rem 0; }
 
     .carousel { max-width: 1400px; margin: 0 auto; user-select: none; }
@@ -80,10 +80,10 @@ permalink: /vault/photography.html
   <hr class="divider">
 </div>
 
-<p class="photo-intro"><a href="../">← back</a></p>
 <div class="photo-intro">
-  <h1>photography</h1>
-  <p>Click the edges, use ← →, or swipe.</p>
+  <p><a href="../">← back</a></p>
+  <h1>portfolio</h1>
+  <p>Some of my favorite snaps.</p>
 </div>
 
 {% assign photos = site.static_files | where_exp: "f", "f.path contains '/static/photos/'" | sort: "path" %}
