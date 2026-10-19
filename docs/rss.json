@@ -77,6 +77,14 @@
       "content_text": "just met up with a friend who is getting her masters- and this subtly makes me wonder if i should've kept going to school. i think either way i've learned a lot- think im just ready for a new chapter...",
       "date_published": "2026-10-06T00:54:00Z",
       "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "rssblog10",
+      "url": "https://barrettjflowers.dev/rss.json",
+      "title": "after einstein",
+      "content_text": "Thinking about non-newtonian fluids— and all of the cases where newtons laws fall apart. Einstein saw this so we got the theory of relativity to fill in the gaps. Relativity now shows its gaps: particularly in the last 30 years or so with our increased understanding of quantum physics. I wonder if we will need a new theory to cover these bespoke cases where Einsteinian physics falls apart?",
+      "date_published": "2026-10-19T16:12:00Z",
+      "authors": [{"name": "barrettjflowers"}]
     }
   ]
 }
