@@ -14,13 +14,16 @@ permalink: /vault/photography.html
     body.photo-page { background-image: none; background-color: #0b0d0b; }
     [data-theme="light"] body.photo-page { background-color: #ececec; }
 
-    .photo-intro { max-width: 900px; margin: 95px auto 1.5rem; }
-    .photo-intro h1 { margin: .5rem 0; }
+    .photo-intro { max-width: 900px; margin: 95px auto 1rem; }
+    .photo-intro h1 { margin: .25rem 0; }
+    .photo-intro p { margin: 0; }
 
     .carousel { max-width: 1400px; margin: 0 auto; user-select: none; }
     .carousel-stage {
       position: relative;
-      height: 75vh;
+      height: calc(100vh - 440px);
+      height: calc(100dvh - 440px);
+      min-height: 220px;
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
