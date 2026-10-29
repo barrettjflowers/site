@@ -43,7 +43,7 @@
 
         <section class="vault glyph-scene">
           <h2>render</h2>
-          <glyph-camera rot-x="65" rot-y="45" zoom="5">
+          <glyph-camera class="render-camera" rot-x="65" rot-y="45" zoom="7">
             <glyph-scene mode="solid" glyph-palette="detail" auto-size use-colors="false">
               <glyph-orbit-controls drag wheel animate-speed="0.3"></glyph-orbit-controls>
               <glyph-mesh class="render-mesh" src="static/desert-lily.obj" auto-center></glyph-mesh>
@@ -242,14 +242,21 @@
   </script>
 
 <script>
-  const renders = ['desert-lily', 'flower', 'dna'];
+  const renders = [
+    { name: 'desert-lily', zoom: 7 },
+    { name: 'flower', zoom: 5 },
+    { name: 'dna', zoom: 5 },
+  ];
   let renderIdx = 0;
+  const renderCamera = document.querySelector('.render-camera');
   const renderMesh = document.querySelector('.render-mesh');
   const renderName = document.querySelector('.render-name');
   function showRender(step) {
     renderIdx = (renderIdx + step + renders.length) % renders.length;
-    renderMesh.setAttribute('src', `static/${renders[renderIdx]}.obj`);
-    renderName.textContent = `${renders[renderIdx]}.obj`;
+    const { name, zoom } = renders[renderIdx];
+    renderCamera.setAttribute('zoom', zoom);
+    renderMesh.setAttribute('src', `static/${name}.obj`);
+    renderName.textContent = `${name}.obj`;
   }
   document.querySelector('.render-prev').addEventListener('click', () => showRender(-1));
   document.querySelector('.render-next').addEventListener('click', () => showRender(1));
