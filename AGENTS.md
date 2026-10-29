@@ -27,14 +27,14 @@ Note: serving with python http.server does NOT run Jekyll. Only static HTML is s
 
 Digital garden content in `docs/vault/`. Two kinds of files:
 
-1. **Markdown pages** (`verbose.md`, `bibliographia.md`, `filmography.md`, `jw-to-markdown.md`, `gallery.md`) — render through `_layouts/default.html`; need YAML front matter (`title`, `layout: default`, optional `date`). Jekyll's `pretty` permalink means the live URL is extension-less (`/vault/verbose`).
-2. **Raw HTML pages** (`resume.html`, `botanicum.html`, `shower-thoughts.html`, `photography.html`) — hand-written pages that duplicate the header/search/theme boilerplate instead of using the Jekyll layout. They keep the `.html` extension in URLs.
+1. **Markdown pages** (`verbose.md`, `bibliographia.md`, `filmography.md`, `jw-to-markdown.md`) — render through `_layouts/default.html`; need YAML front matter (`title`, `layout: default`, optional `date`). Jekyll's `pretty` permalink means the live URL is extension-less (`/vault/verbose`).
+2. **Raw HTML pages** (`resume.html`, `botanicum.html`, `photography.html`) — hand-written pages that duplicate the header/search/theme boilerplate instead of using the Jekyll layout. They keep the `.html` extension in URLs.
 
 `photography.html` is the exception that has front matter (`layout: null`, `permalink: /vault/photography.html`) so Jekyll runs its Liquid: it lists every image in `static/photos/` via `site.static_files` into a JSON blob that drives the carousel. Drop an image in that folder and push — no code change needed. Order is by filename; caption is the filename with `-`/`_` as spaces. Locally (no Jekyll) the carousel shows its empty state.
 
 Navigation conventions: vault links use extension-less URLs for `.md` pages and literal `.html` for the raw HTML pages. When adding a vault entry, update: the vault `<section>` in `index.html`, the graph nodes/links, and (since each page duplicates the search script) the hardcoded `vaultLinks` array in `_layouts/default.html` (and in standalone HTML pages).
 
-Caveats: `gallery.md` is a stub whose body currently duplicates book recommendations; `botanicum.html` uses absolute `/static/...` image paths.
+Caveats: `botanicum.html` uses absolute `/static/...` image paths.
 
 ## D3 graph
 
@@ -49,7 +49,7 @@ Rendered into `#graph-container` inside the `<section class="graph">`. `d3.force
 
 - **Themes** — `data-theme` attribute on `<html>` toggles CSS variables in `style/style.css`; `dark` (default) is green-black with `static/bg.jpg`, `light` is near-white. Persisted in `localStorage.theme`. Each page runs its own toggle JS.
 - **Search** — header `<input>` with an autocomplete dropdown over vault links; `f` focuses it, arrow keys navigate, Enter follows. Script is duplicated per page (`index.html` reads links from the `.vault` section DOM; `_layouts/default.html` and raw HTML pages use a hardcoded array).
-- **Giscus comments** — homepage is discussion #1 (`data-term="1"`), `shower-thoughts.html` is discussion #2 (`data-term="2"`). Themes must be synced to the page theme via `postMessage`.
+- **Giscus comments** — homepage is discussion #1 (`data-term="1"`). Themes must be synced to the page theme via `postMessage`.
 - **3D render** — `glyph-camera`/`glyph-scene`/`glyph-mesh` custom elements from `https://esm.sh/glyphcss/elements` render `static/flower.obj`; draggable via `glyph-orbit-controls`.
 - **Misc homepage widgets** — 88x31 visitor counter from `88x31.lol`.
 

@@ -185,9 +185,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  flex: 1 1 600px;
+  flex: 1 1 500px;
   min-width: 0;
-  max-width: 900px;
+  max-width: 680px;
 }
 
 .main-col > .container {

@@ -14,7 +14,6 @@ site/
 │   │   ├── bibliographia.md       #    book recommendations
 │   │   ├── botanicum.html         #    plant collection — draggable species cards
 │   │   ├── filmography.md         #    film/video recommendations
-│   │   ├── gallery.md             #    gallery (stub, needs content)
 │   │   ├── jw-to-markdown.md      #    jw library to markdown
 │   │   ├── resume.html            #    Resume — fetches content from barrettjflowers/simple-resume
 │   │   └── verbose.md             #    personal info, favorites, socials, projects
