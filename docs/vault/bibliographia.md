@@ -4,7 +4,7 @@ date: 2026-05-18
 layout: default
 ---
 
-# book recommendations
+# favorite books
 - East of Eden -- John Steinbeck
 - The Lord of the Rings, Return of the King -- J. R. R. Tolkien *im sorry but you have too*
 - The Will of the Many -- James Islington *fantasy roman-core*
