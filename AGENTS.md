@@ -17,7 +17,7 @@ Note: serving with python http.server does NOT run Jekyll. Only static HTML is s
   - `vault/` — digital garden content (see section below)
   - `style/style.css` — global stylesheet with dark/light themes via CSS variables
   - `style/giscus-{dark,light}.css` — Giscus comment widget themes
-  - `static/` — images (`bg.jpg`, plant photos) and `.obj` 3D models (`flower.obj`, `teapot.obj`)
+  - `static/` — images (`bg.jpg`, plant photos) and `.obj` 3D models (`desert-lily.obj`, `flower.obj`, `dna.obj`, `teapot.obj`)
   - `static/photos/` — photography carousel images, auto-listed by `vault/photography.html`
   - `rss.json` — manual JSONFeed of "shower thoughts" (sourced from GitHub Discussions #2)
   - `CNAME` — custom domain `barrettjflowers.dev`
@@ -50,7 +50,7 @@ Rendered into `#graph-container` inside the `<section class="graph">`. `d3.force
 - **Themes** — `data-theme` attribute on `<html>` toggles CSS variables in `style/style.css`; `dark` (default) is green-black with `static/bg.jpg`, `light` is near-white. Persisted in `localStorage.theme`. Each page runs its own toggle JS.
 - **Search** — header `<input>` with an autocomplete dropdown over vault links; `f` focuses it, arrow keys navigate, Enter follows. Script is duplicated per page (`index.html` reads links from the `.vault` section DOM; `_layouts/default.html` and raw HTML pages use a hardcoded array).
 - **Giscus comments** — homepage is discussion #1 (`data-term="1"`). Themes must be synced to the page theme via `postMessage`.
-- **3D render** — `glyph-camera`/`glyph-scene`/`glyph-mesh` custom elements from `https://esm.sh/glyphcss/elements` render `static/flower.obj`; draggable via `glyph-orbit-controls`.
+- **3D render** — `glyph-camera`/`glyph-scene`/`glyph-mesh` custom elements from `https://esm.sh/glyphcss/elements`; draggable via `glyph-orbit-controls`. The `< >` buttons in the "render" header cycle the `renders` array in `index.html` (`desert-lily`, `flower`, `dna`) by swapping the mesh `src` to `static/<name>.obj`. To add a model, drop the `.obj` in `static/` and add its name to that array.
 - **Misc homepage widgets** — 88x31 visitor counter from `88x31.lol`.
 
 ## deployment / workflow

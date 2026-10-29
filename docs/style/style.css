@@ -168,6 +168,11 @@ body {
   min-width: 200px;
 }
 
+/* fixed width so cycling renders doesn't resize the column */
+.vault-col {
+  width: 240px;
+}
+
 .vault, .projects {
   padding: 20px;
 }
@@ -411,6 +416,27 @@ a:hover {
   color: var(--text);
   font-family: Iosevka, Menlo, monospace;
   font-size: 10px;
+}
+
+.render-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  color: var(--text);
+}
+
+.render-nav button {
+  background: none;
+  border: none;
+  padding: 0 0.3em;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.render-nav button:hover {
+  opacity: 0.6;
 }
 
 /* botanicum */
