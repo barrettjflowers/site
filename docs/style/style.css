@@ -547,3 +547,17 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.site-footer {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: var(--text);
+}
+
+.site-footer p {
+  margin: 0.3em 0;
+}
