@@ -2,37 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>resume | barrettjflowers</title>
-  <link rel="stylesheet" href="../style/style.css">
-  <style>
-    #resume-container {
-      max-width: 800px;
-      margin: 20px auto 40px;
-      padding: 40px;
-      background: #f7e8d5;
-      border: 2px solid var(--border);
-      border-radius: 4px;
-    }
-    #resume-container * {
-      max-width: 100%;
-    }
-    #resume-container body {
-      padding: 0;
-    }
-  </style>
+  <meta http-equiv="refresh" content="0; url=https://resume.barrettjflowers.dev">
+  <link rel="canonical" href="https://resume.barrettjflowers.dev">
 </head>
 <body>
-  <div id="resume-container"></div>
-  <script>
-    fetch('https://raw.githubusercontent.com/barrettjflowers/simple-resume/refs/heads/main/index.html')
-      .then(r => r.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const resume = doc.getElementById('resume');
-        document.getElementById('resume-container').appendChild(resume);
-      });
-  </script>
+  <p>Moved to <a href="https://resume.barrettjflowers.dev">resume.barrettjflowers.dev</a>.</p>
 </body>
 </html>

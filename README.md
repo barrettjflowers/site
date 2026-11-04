@@ -15,7 +15,7 @@ site/
 │   │   ├── botanicum.html         #    plant collection — draggable species cards
 │   │   ├── filmography.md         #    film/video recommendations
 │   │   ├── jw-to-markdown.md      #    jw library to markdown
-│   │   ├── resume.html            #    Resume — fetches content from barrettjflowers/simple-resume
+│   │   ├── resume.html            #    Redirect to resume.barrettjflowers.dev
 │   │   └── verbose.md             #    personal info, favorites, socials, projects
 │   ├── static/                    # Static assets
 │   │   ├── bg.jpg                 #    dark-theme background
