@@ -17,7 +17,7 @@
     <input type="search" placeholder="search" class="search" id="search-input">
     <span class="search-shortcut" id="search-shortcut"></span>
   </div>
-  <p class="date"><a href="https://88x31.lol"><img src="https://88x31.lol/counter4.gif" alt="88x31 - Visitor counter" width="88" height="31" /></a> · Updated Wed, 4 Nov 2026 · 2 min read</p>
+  <p class="date"><a href="https://88x31.lol"><img src="https://88x31.lol/counter4.gif" alt="88x31 - Visitor counter" width="88" height="31" /></a> · Updated Mon, 9 Nov 2026 · 2 min read</p>
   <svg class="theme-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <circle cx="12" cy="12" r="5" class="sun"></circle>
     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
@@ -25,7 +25,11 @@
   </svg>
   <div class="music-player">
     <span class="music-now"><span class="music-icon" aria-hidden="true">&#9835;&#xFE0E;</span> <span id="music-title">The River — Andrew Prahlow</span></span>
-    <button id="music-toggle" aria-label="play"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 1L9 5L2 9Z" fill="currentColor"/></svg></button>
+    <div class="music-controls">
+      <button id="music-prev" aria-label="previous track"><svg width="10" height="10" viewBox="0 0 10 10"><rect x="1" y="1" width="1.5" height="8" fill="currentColor"/><path d="M9 1L3 5L9 9Z" fill="currentColor"/></svg></button>
+      <button id="music-toggle" aria-label="play"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 1L9 5L2 9Z" fill="currentColor"/></svg></button>
+      <button id="music-next" aria-label="next track"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 1L7 5L1 9Z" fill="currentColor"/><rect x="7.5" y="1" width="1.5" height="8" fill="currentColor"/></svg></button>
+    </div>
     <div id="yt-player"></div>
   </div>
   <hr class="divider">
@@ -143,11 +147,18 @@
         comments by <a href="https://giscus.app" target="_blank">giscus</a> ·
         hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
       </p>
-      <p>music: "The River" by Andrew Prahlow (<i>Outer Wilds: Echoes of the Eye</i>) via <a href="https://www.youtube.com/watch?v=LS-TwLP5v8k&list=PLD4JUBLkZrQPTRCxddOfPG09ksbPwvucg&index=2" target="_blank">YouTube</a></p>
+      <p>music via YouTube: <a href="https://www.youtube.com/watch?v=LS-TwLP5v8k&list=PLD4JUBLkZrQPTRCxddOfPG09ksbPwvucg&index=2" target="_blank">"The River"</a> by Andrew Prahlow (<i>Outer Wilds: Echoes of the Eye</i>) · <a href="https://www.youtube.com/watch?v=BarNl703rb0" target="_blank">"The Diary"</a> by Dexter Britain</p>
     </footer>
   </div>
   <script>
-    // header music player: hidden YouTube iframe, starts paused
+    // header music player: hidden YouTube iframe, starts paused, cycles the playlist
+    const tracks = [
+      { id: 'LS-TwLP5v8k', title: 'The River — Andrew Prahlow' },
+      { id: 'BarNl703rb0', title: 'The Diary — Dexter Britain' },
+    ];
+    let trackIdx = 0;
+    let failCount = 0; // consecutive tracks that failed, stops endless skipping
+    const musicTitle = document.getElementById('music-title');
     const PLAY_ICON = '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 1L9 5L2 9Z" fill="currentColor"/></svg>';
     const PAUSE_ICON = '<svg width="10" height="10" viewBox="0 0 10 10"><rect x="2" y="1" width="2" height="8" fill="currentColor"/><rect x="6" y="1" width="2" height="8" fill="currentColor"/></svg>';
     const musicToggle = document.getElementById('music-toggle');
@@ -157,14 +168,32 @@
       musicToggle.innerHTML = playing ? PAUSE_ICON : PLAY_ICON;
       musicToggle.setAttribute('aria-label', playing ? 'pause' : 'play');
     }
+    function loadTrack(i) {
+      trackIdx = (i + tracks.length) % tracks.length;
+      musicTitle.textContent = tracks[trackIdx].title;
+      if (!ytPlayer || !ytPlayer.loadVideoById) return;
+      const id = tracks[trackIdx].id;
+      wantPlaying ? ytPlayer.loadVideoById(id) : ytPlayer.cueVideoById(id);
+    }
     function onYouTubeIframeAPIReady() {
       if (window.matchMedia('(max-width: 800px)').matches) return;
       ytPlayer = new YT.Player('yt-player', {
         height: '0', width: '0',
-        videoId: 'LS-TwLP5v8k',
-        playerVars: { loop: 1, playlist: 'LS-TwLP5v8k' },
+        videoId: tracks[0].id,
         events: {
+          // catch up if prev/next was clicked before the player was ready
+          onReady: () => { if (trackIdx !== 0) loadTrack(trackIdx); },
+          // blocked/unavailable video: show the error code, then skip to the next track
+          onError: (e) => {
+            console.warn('YouTube error', e.data, 'on', tracks[trackIdx].id);
+            musicTitle.textContent = `${tracks[trackIdx].title} — can't play (${e.data})`;
+            if (++failCount >= tracks.length) return;
+            const failed = trackIdx;
+            setTimeout(() => { if (trackIdx === failed) loadTrack(trackIdx + 1); }, 2500);
+          },
           onStateChange: (e) => {
+            if (e.data === YT.PlayerState.ENDED) return loadTrack(trackIdx + 1);
+            if (e.data === YT.PlayerState.PLAYING) failCount = 0;
             // only sync on settled states so buffering doesn't flip the icon back
             if (e.data === YT.PlayerState.PLAYING) wantPlaying = true;
             else if (e.data === YT.PlayerState.PAUSED) wantPlaying = false;
@@ -180,6 +209,8 @@
       if (!ytPlayer || !ytPlayer.playVideo) return;
       wantPlaying ? ytPlayer.playVideo() : ytPlayer.pauseVideo();
     });
+    document.getElementById('music-prev').addEventListener('click', () => loadTrack(trackIdx - 1));
+    document.getElementById('music-next').addEventListener('click', () => loadTrack(trackIdx + 1));
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>

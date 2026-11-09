@@ -429,6 +429,20 @@ a:hover {
   padding: 0;
   line-height: 1;
 }
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.4em;
+}
+#music-prev,
+#music-next {
+  display: flex;
+  align-items: center;
+  padding: 0.2em;
+  opacity: 0.7;
+}
+#music-prev:hover,
+#music-next:hover { opacity: 1; }
 #yt-player { position: absolute; width: 0; height: 0; }
 @media (max-width: 800px) {
   .music-player { display: none; }

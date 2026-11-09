@@ -54,9 +54,11 @@ Rendered into `#graph-container` inside the `<section class="graph">`. `d3.force
 - **Giscus comments** — homepage is discussion #1 (`data-term="1"`). Themes must be synced to the page theme via `postMessage`.
 - **3D render** — `glyph-camera`/`glyph-scene`/`glyph-mesh` custom elements from `https://esm.sh/glyphcss/elements`; draggable via `glyph-orbit-controls`. The `< >` buttons in the "render" header cycle the `renders` array in `index.html` (`desert-lily`, `flower`, `dna`) by swapping the mesh `src` to `static/<name>.obj`. To add a model, drop the `.obj` in `static/` and add its name to that array.
 - **Misc homepage widgets** — 88x31 visitor counter from `88x31.lol`.
+- **Music player** — header player in `index.html` is a hidden YouTube iframe (IFrame API). Tracks live in the `tracks` array (`{ id, title }`, `id` = YouTube video ID); `< >` buttons cycle it and it auto-advances on track end. Avoid auto-generated "Artist - Topic" uploads: they often fail embedded with error 150 (the title shows `can't play (150)` and skips); use a regular channel's upload. To add a song, append to `tracks` and add a credit to the footer `music via YouTube` line. Hidden at ≤800px.
 
 ## deployment / workflow
 
+- **Header date** — `index.html` line ~20 has `Updated {Ddd, D Mon YYYY}` (e.g. `Updated Mon, 9 Nov 2026`). Any change to any page (including `rss.json` posts) must bump it to today's date in the same commit.
 - Push to `main` → GitHub Pages builds from `docs/` automatically.
 - `_config.yml` excludes `README.MD` and `CNAME` from the output; `include` has `.well-known`.
 - No tests or linting configured for this repo; validate by viewing the built site.
