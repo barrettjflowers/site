@@ -85,6 +85,14 @@
       "content_text": "Thinking about non-newtonian fluids— and all of the cases where newtons laws fall apart. Einstein saw this so we got the theory of relativity to fill in the gaps. Relativity now shows its gaps: particularly in the last 30 years or so with our increased understanding of quantum physics. I wonder if we will need a new theory to cover these bespoke cases where Einsteinian physics falls apart?",
       "date_published": "2026-10-19T16:12:00Z",
       "authors": [{"name": "barrettjflowers"}]
+    },
+    {
+      "id": "rssblog11",
+      "url": "https://barrettjflowers.dev/rss.json",
+      "title": "outer wilds",
+      "content_text": "I love Outer Wilds so much. It perfectly encapsulates what it's like to be going down a random rabbit hole at 2 a.m. and unlocking the secrets of the universe. Also, side note, Echoes of the Eye soundtrack is so good I had to add it to my website playlist.",
+      "date_published": "2026-11-09T17:36:00Z",
+      "authors": [{"name": "barrettjflowers"}]
     }
   ]
 }
