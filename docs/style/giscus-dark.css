@@ -153,3 +153,9 @@ main input::placeholder,
 #__next .placeholder-gray-500::placeholder {
   color: var(--color-fg-subtle) !important;
 }
+
+/* newest comments first */
+.gsc-timeline {
+  display: flex;
+  flex-direction: column-reverse;
+}
