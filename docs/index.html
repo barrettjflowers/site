@@ -23,6 +23,11 @@
     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" class="moon"></path>
   </svg>
+  <div class="music-player">
+    <span class="music-now"><span class="music-icon" aria-hidden="true">&#9835;&#xFE0E;</span> <span id="music-title">The River — Andrew Prahlow</span></span>
+    <button id="music-toggle" aria-label="play"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 1L9 5L2 9Z" fill="currentColor"/></svg></button>
+    <div id="yt-player"></div>
+  </div>
   <hr class="divider">
 </div>
 
@@ -139,8 +144,45 @@
         comments by <a href="https://giscus.app" target="_blank">giscus</a> ·
         hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
       </p>
+      <p>music: "The River" by Andrew Prahlow (<i>Outer Wilds: Echoes of the Eye</i>) via <a href="https://www.youtube.com/watch?v=LS-TwLP5v8k&list=PLD4JUBLkZrQPTRCxddOfPG09ksbPwvucg&index=2" target="_blank">YouTube</a></p>
     </footer>
   </div>
+  <script>
+    // header music player: hidden YouTube iframe, starts paused
+    const PLAY_ICON = '<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 1L9 5L2 9Z" fill="currentColor"/></svg>';
+    const PAUSE_ICON = '<svg width="10" height="10" viewBox="0 0 10 10"><rect x="2" y="1" width="2" height="8" fill="currentColor"/><rect x="6" y="1" width="2" height="8" fill="currentColor"/></svg>';
+    const musicToggle = document.getElementById('music-toggle');
+    let ytPlayer;
+    let wantPlaying = false;
+    function setMusicIcon(playing) {
+      musicToggle.innerHTML = playing ? PAUSE_ICON : PLAY_ICON;
+      musicToggle.setAttribute('aria-label', playing ? 'pause' : 'play');
+    }
+    function onYouTubeIframeAPIReady() {
+      if (window.matchMedia('(max-width: 800px)').matches) return;
+      ytPlayer = new YT.Player('yt-player', {
+        height: '0', width: '0',
+        videoId: 'LS-TwLP5v8k',
+        playerVars: { loop: 1, playlist: 'LS-TwLP5v8k' },
+        events: {
+          onStateChange: (e) => {
+            // only sync on settled states so buffering doesn't flip the icon back
+            if (e.data === YT.PlayerState.PLAYING) wantPlaying = true;
+            else if (e.data === YT.PlayerState.PAUSED) wantPlaying = false;
+            else return;
+            setMusicIcon(wantPlaying);
+          }
+        }
+      });
+    }
+    musicToggle.addEventListener('click', () => {
+      wantPlaying = !wantPlaying;
+      setMusicIcon(wantPlaying);
+      if (!ytPlayer || !ytPlayer.playVideo) return;
+      wantPlaying ? ytPlayer.playVideo() : ytPlayer.pauseVideo();
+    });
+  </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     const nodes = [
       { id: "index.html", type: "file", url: "./index.html" },
