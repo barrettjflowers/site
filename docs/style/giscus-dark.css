@@ -147,3 +147,9 @@ main .rounded-1,
 main .rounded-2 {
   border-radius: 0 !important;
 }
+
+main textarea::placeholder,
+main input::placeholder,
+#__next .placeholder-gray-500::placeholder {
+  color: var(--color-fg-subtle) !important;
+}
