@@ -35,7 +35,7 @@ A [firehose](https://indieweb.org/firehose) is a single stream of everything a s
     });
   }
   try {
-    const feed = await (await fetch('{{ site.baseurl }}/rss.json')).json();
+    const feed = await (await fetch('{{ site.baseurl }}/feed.json')).json();
     for (const item of feed.items) {
       const li = document.createElement('li');
       li.className = 'h-entry';
@@ -45,7 +45,7 @@ A [firehose](https://indieweb.org/firehose) is a single stream of everything a s
       time.className = 'dt-published';
       time.dateTime = item.date_published;
       time.textContent = fmt(new Date(item.date_published));
-      meta.append(time, ' · rss feed');
+      meta.append(time, ' · feed');
       const a = document.createElement('a');
       a.className = 'u-url p-name';
       a.href = item.url;
@@ -57,7 +57,7 @@ A [firehose](https://indieweb.org/firehose) is a single stream of everything a s
       list.appendChild(li);
     }
   } catch (e) {
-    console.error('firehose: rss.json failed', e);
+    console.error('firehose: feed.json failed', e);
   }
   [...list.children]
     .sort((x, y) => new Date(y.querySelector('time').dateTime) - new Date(x.querySelector('time').dateTime))

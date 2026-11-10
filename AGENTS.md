@@ -19,7 +19,7 @@ Note: serving with python http.server does NOT run Jekyll. Only static HTML is s
   - `style/giscus-{dark,light}.css` — Giscus comment widget themes
   - `static/` — images (`bg.jpg`, plant photos) and `.obj` 3D models (`desert-lily.obj`, `flower.obj`, `dna.obj`, `teapot.obj`)
   - `static/photos/` — photography carousel images, auto-listed by `vault/photography.html`
-  - `rss.json` — manual JSONFeed of "shower thoughts" (sourced from GitHub Discussions #2)
+  - `feed.json` — manual JSON Feed of "shower thoughts" (sourced from GitHub Discussions #2)
   - `CNAME` — custom domain `barrettjflowers.dev`
 - `README.md` — human-readable overview, largely duplicated by this file
 
@@ -32,7 +32,7 @@ Digital garden content in `docs/vault/`. Two kinds of files:
 
 `photography.html` is the exception that has front matter (`layout: null`, `permalink: /vault/photography.html`) so Jekyll runs its Liquid: it lists every image in `static/photos/` via `site.static_files` into a JSON blob that drives the carousel. Drop an image in that folder and push — no code change needed. Order is by filename; caption is the filename with `-`/`_` as spaces. Locally (no Jekyll) the carousel shows its empty state.
 
-`firehose.md` is an IndieWeb-style firehose: every post newest-first, marked up as `h-feed`/`h-entry`. Liquid lists every page with a front-matter `date` at build time; client JS fetches `rss.json`, appends its items, then re-sorts all entries by `<time datetime>`. Give a new page a `date` and it shows up automatically. Locally (no Jekyll) only the rss items render.
+`firehose.md` is an IndieWeb-style firehose: every post newest-first, marked up as `h-feed`/`h-entry`. Liquid lists every page with a front-matter `date` at build time; client JS fetches `feed.json`, appends its items, then re-sorts all entries by `<time datetime>`. Give a new page a `date` and it shows up automatically. Locally (no Jekyll) only the feed items render.
 
 The resume lives on its own site, `https://resume.barrettjflowers.dev`; vault links point there directly, and `vault/resume.html` is only a redirect for old links.
 
@@ -60,7 +60,7 @@ Rendered into `#graph-container` inside the `<section class="graph">`. `d3.force
 
 ## deployment / workflow
 
-- **Header date** — `index.html` line ~20 has `Updated {Ddd, D Mon YYYY}` (e.g. `Updated Mon, 9 Nov 2026`). Any change to any page (including `rss.json` posts) must bump it to today's date in the same commit.
+- **Header date** — `index.html` line ~20 has `Updated {Ddd, D Mon YYYY}` (e.g. `Updated Mon, 9 Nov 2026`). Any change to any page (including `feed.json` posts) must bump it to today's date in the same commit.
 - Push to `main` → GitHub Pages builds from `docs/` automatically.
 - `_config.yml` excludes `README.MD` and `CNAME` from the output; `include` has `.well-known`.
 - No tests or linting configured for this repo; validate by viewing the built site.

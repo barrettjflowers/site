@@ -2,7 +2,7 @@
   "version": "https://jsonfeed.org/version/1.1",
   "title": "shower thoughts",
   "home_page_url": "https://barrettjflowers.dev",
-  "feed_url": "https://barrettjflowers.dev/rss.json",
+  "feed_url": "https://barrettjflowers.dev/feed.json",
   "description": "shower musings go here",
   "authors": [{"name": "barrettjflowers"}],
   "items": [
@@ -64,7 +64,7 @@
     },
     {
       "id": "rssblog8",
-      "url": "https://barrettjflowers.dev/rss.json",
+      "url": "https://barrettjflowers.dev/feed.json",
       "title": "viewing obj files with ascii",
       "content_text": "found this awesome tool for viewing obj files with ascii called glyphcss https://glyphcss.com/. Just implemented it on my homepage- but im already thinking of other cool usecases for it.",
       "date_published": "2026-09-12T00:22:00Z",
@@ -72,7 +72,7 @@
     },
     {
       "id": "rssblog9",
-      "url": "https://barrettjflowers.dev/rss.json",
+      "url": "https://barrettjflowers.dev/feed.json",
       "title": "a new chapter",
       "content_text": "just met up with a friend who is getting her masters- and this subtly makes me wonder if i should've kept going to school. i think either way i've learned a lot- think im just ready for a new chapter...",
       "date_published": "2026-10-06T00:54:00Z",
@@ -80,7 +80,7 @@
     },
     {
       "id": "rssblog10",
-      "url": "https://barrettjflowers.dev/rss.json",
+      "url": "https://barrettjflowers.dev/feed.json",
       "title": "after einstein",
       "content_text": "Thinking about non-newtonian fluids— and all of the cases where newtons laws fall apart. Einstein saw this so we got the theory of relativity to fill in the gaps. Relativity now shows its gaps: particularly in the last 30 years or so with our increased understanding of quantum physics. I wonder if we will need a new theory to cover these bespoke cases where Einsteinian physics falls apart?",
       "date_published": "2026-10-19T16:12:00Z",
@@ -88,7 +88,7 @@
     },
     {
       "id": "rssblog11",
-      "url": "https://barrettjflowers.dev/rss.json",
+      "url": "https://barrettjflowers.dev/feed.json",
       "title": "outer wilds",
       "content_text": "I love Outer Wilds so much. It perfectly encapsulates what it's like to be going down a random rabbit hole at 2 a.m. and unlocking the secrets of the universe. Also, side note, Echoes of the Eye soundtrack is so good I had to add it to my website playlist.",
       "date_published": "2026-11-09T17:36:00Z",
