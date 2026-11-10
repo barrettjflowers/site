@@ -4,7 +4,7 @@ layout: default
 ---
 
 # firehose
-Every post on this site in one stream, newest first. Pages are listed at build time; shower thoughts come from [rss.json](/rss.json).
+A [firehose](https://indieweb.org/firehose) is a single stream of everything a site publishes. Every post here, newest first.
 
 <style>
   .firehose { list-style: none; padding: 0; }
