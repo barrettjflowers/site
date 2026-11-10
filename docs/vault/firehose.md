@@ -45,7 +45,7 @@ A [firehose](https://indieweb.org/firehose) is a single stream of everything a s
       time.className = 'dt-published';
       time.dateTime = item.date_published;
       time.textContent = fmt(new Date(item.date_published));
-      meta.append(time, ' · note');
+      meta.append(time, ' · rss feed');
       const a = document.createElement('a');
       a.className = 'u-url p-name';
       a.href = item.url;
