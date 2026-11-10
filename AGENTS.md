@@ -27,10 +27,12 @@ Note: serving with python http.server does NOT run Jekyll. Only static HTML is s
 
 Digital garden content in `docs/vault/`. Two kinds of files:
 
-1. **Markdown pages** (`verbose.md`, `bibliotheque.md`, `filmography.md`, `jw-to-markdown.md`) — render through `_layouts/default.html`; need YAML front matter (`title`, `layout: default`, optional `date`). Jekyll's `pretty` permalink means the live URL is extension-less (`/vault/verbose`).
+1. **Markdown pages** (`verbose.md`, `bibliotheque.md`, `filmography.md`, `jw-to-markdown.md`, `firehose.md`) — render through `_layouts/default.html`; need YAML front matter (`title`, `layout: default`, optional `date`). Jekyll's `pretty` permalink means the live URL is extension-less (`/vault/verbose`).
 2. **Raw HTML pages** (`botanicum.html`, `photography.html`) — hand-written pages that duplicate the header/search/theme boilerplate instead of using the Jekyll layout. They keep the `.html` extension in URLs.
 
 `photography.html` is the exception that has front matter (`layout: null`, `permalink: /vault/photography.html`) so Jekyll runs its Liquid: it lists every image in `static/photos/` via `site.static_files` into a JSON blob that drives the carousel. Drop an image in that folder and push — no code change needed. Order is by filename; caption is the filename with `-`/`_` as spaces. Locally (no Jekyll) the carousel shows its empty state.
+
+`firehose.md` is an IndieWeb-style firehose: every post newest-first, marked up as `h-feed`/`h-entry`. Liquid lists every page with a front-matter `date` at build time; client JS fetches `rss.json`, appends its items, then re-sorts all entries by `<time datetime>`. Give a new page a `date` and it shows up automatically. Locally (no Jekyll) only the rss items render.
 
 The resume lives on its own site, `https://resume.barrettjflowers.dev`; vault links point there directly, and `vault/resume.html` is only a redirect for old links.
 
