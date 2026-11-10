@@ -36,7 +36,7 @@ Digital garden content in `docs/vault/`. Two kinds of files:
 
 The resume lives on its own site, `https://resume.barrettjflowers.dev`; vault links point there directly, and `vault/resume.html` is only a redirect for old links.
 
-Navigation conventions: vault links use extension-less URLs for `.md` pages and literal `.html` for the raw HTML pages. When adding a vault entry, update: the vault `<section>` in `index.html`, the graph nodes/links, and (since each page duplicates the search script) the hardcoded `vaultLinks` array in `_layouts/default.html` (and in standalone HTML pages).
+Navigation conventions: vault links use extension-less URLs for `.md` pages and literal `.html` for the raw HTML pages. When adding a vault entry, update: the vault `<section>` in `index.html`, the graph nodes/links, and (since each page duplicates the search script) the hardcoded `vaultLinks` array in `_layouts/default.html` (and in standalone HTML pages and the homepage search).
 
 Caveats: `botanicum.html` uses absolute `/static/...` image paths.
 
@@ -52,7 +52,7 @@ Rendered into `#graph-container` inside the `<section class="graph">`. `d3.force
 ## other notable concepts
 
 - **Themes** — `data-theme` attribute on `<html>` toggles CSS variables in `style/style.css`; `dark` (default) is green-black with `static/bg.jpg`, `light` is near-white. Persisted in `localStorage.theme`. Each page runs its own toggle JS.
-- **Search** — header `<input>` with an autocomplete dropdown over vault links; `f` focuses it, arrow keys navigate, Enter follows. Script is duplicated per page (`index.html` reads links from the `.vault` section DOM; `_layouts/default.html` and raw HTML pages use a hardcoded array).
+- **Search** — header `<input>` with an autocomplete dropdown over vault links; `f` focuses it, arrow keys navigate, Enter follows. Script is duplicated per page (every page, including `index.html`, uses its own hardcoded `vaultLinks` array — keep them in sync; the homepage's also lists pages hidden from the vault section).
 - **Giscus comments** — homepage is discussion #1 (`data-term="1"`). Themes must be synced to the page theme via `postMessage`.
 - **3D render** — `glyph-camera`/`glyph-scene`/`glyph-mesh` custom elements from `https://esm.sh/glyphcss/elements`; draggable via `glyph-orbit-controls`. The `< >` buttons in the "render" header cycle the `renders` array in `index.html` (`desert-lily`, `flower`, `dna`) by swapping the mesh `src` to `static/<name>.obj`. To add a model, drop the `.obj` in `static/` and add its name to that array.
 - **Misc homepage widgets** — 88x31 visitor counter from `88x31.lol`.

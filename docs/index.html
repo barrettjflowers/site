@@ -377,7 +377,18 @@
   });
 
   const searchInput = document.getElementById('search-input');
-  const vaultLinks = document.querySelectorAll('.vault a');
+  // Every page, not just the ones shown in the vault section.
+  const vaultLinks = [
+    { href: "./vault/verbose", textContent: "verbose.md" },
+    { href: "https://resume.barrettjflowers.dev", textContent: "resume.html" },
+    { href: "./vault/bibliotheque", textContent: "bibliotheque.md" },
+    { href: "./vault/filmography", textContent: "filmography.md" },
+    { href: "./vault/firehose", textContent: "firehose.md" },
+    { href: "./vault/botanicum.html", textContent: "botanicum.html" },
+    { href: "./vault/jw-to-markdown", textContent: "jw-to-markdown.md" },
+    { href: "./vault/photography.html", textContent: "photography.html" },
+    { href: "./rss.json", textContent: "rss.json" }
+  ];
 
   let dropdown = document.createElement('div');
   dropdown.className = 'search-dropdown';
