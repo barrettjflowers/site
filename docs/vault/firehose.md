@@ -13,7 +13,7 @@ Every post on this site in one stream, newest first. Pages are listed at build t
   .firehose .e-content { margin: 0.25em 0 0; white-space: pre-line; }
 </style>
 
-<ol class="firehose h-feed" id="firehose">
+<ol class="firehose h-feed" id="firehose-feed">
 {%- assign dated = site.pages | where_exp: "p", "p.date" -%}
 {%- for p in dated -%}
   <li class="h-entry">
@@ -26,8 +26,8 @@ Every post on this site in one stream, newest first. Pages are listed at build t
 
 <script>
 (async () => {
-  const list = document.getElementById('firehose');
-  const fmt = d => d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }).replace(/^(\w+)/, '$1,');
+  const list = document.getElementById('firehose-feed');
+  const fmt = d => `${d.toLocaleDateString('en-US', { weekday: 'short' })}, ${d.getDate()} ${d.toLocaleDateString('en-US', { month: 'short' })} ${d.getFullYear()}`;
   function linkify(el, text) {
     text.split(/(https?:\/\/\S+)/).forEach((part, i) => {
       if (i % 2) { const a = document.createElement('a'); a.href = part; a.textContent = part; el.appendChild(a); }
