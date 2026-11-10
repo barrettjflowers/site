@@ -330,10 +330,15 @@ a:hover {
   display: block;
 }
 
-.search-dropdown-item:hover,
+/* override the global a:hover so only .selected is highlighted */
+.search-dropdown-item:hover {
+  background-color: transparent;
+  color: var(--text);
+}
+
 .search-dropdown-item.selected {
-  background-color: var(--link-hover-bg);
-  color: var(--link-hover-text);
+  background-color: var(--text);
+  color: var(--bg);
 }
 
 .search::-webkit-selection,
@@ -343,11 +348,21 @@ a:hover {
 
 .date {
   position: absolute;
-  top: 1em;
+  /* same top, size and line-height as the header music title (.music-now) so they line up */
+  top: 26px;
   right: 1em;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.date-icon {
+  width: 0.9em;
+  height: 0.9em;
+  flex: none;
 }
 
 @media (max-width: 800px) {
@@ -356,7 +371,7 @@ a:hover {
   }
 }
 
-.date a img {
+.counter img {
   width: 88px;
   height: 31px;
   opacity: 0.7;
@@ -402,9 +417,12 @@ a:hover {
 /* header music player */
 .music-player {
   position: absolute;
-  top: 50%;
+  top: 26px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  line-height: 1.6;
+  /* leave ~25.5rem clear on each side so it never runs into the date */
+  max-width: calc(100% - 51rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -443,8 +461,15 @@ a:hover {
 }
 #music-prev:hover,
 #music-next:hover { opacity: 1; }
+.music-now {
+  font-size: 1rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 #yt-player { position: absolute; width: 0; height: 0; }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .music-player { display: none; }
 }
 

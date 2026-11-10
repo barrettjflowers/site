@@ -14,7 +14,7 @@
     <input type="search" placeholder="search" class="search" id="search-input">
     <span class="search-shortcut" id="search-shortcut"></span>
   </div>
-  <p class="date">{% if page.date %}{{ page.date | date: "%a, %-d %B %Y" }}{% else %}<span id="today-date"></span>{% endif %}</p>
+  <p class="date"><svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>{% if page.date %}{{ page.date | date: "%a, %-d %b %Y" }}{% else %}<span id="today-date"></span>{% endif %}</p>
   <svg class="theme-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <circle cx="12" cy="12" r="5" class="sun"></circle>
     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
@@ -39,7 +39,7 @@
   if (dateEl) {
     const now = new Date();
     const weekday = now.toLocaleDateString('en-US', { weekday: 'short' });
-    const month = now.toLocaleDateString('en-US', { month: 'long' });
+    const month = now.toLocaleDateString('en-US', { month: 'short' });
     dateEl.textContent = `${weekday}, ${now.getDate()} ${month} ${now.getFullYear()}`;
   }
 
@@ -87,6 +87,11 @@
       div.addEventListener('click', (e) => {
         e.preventDefault();
         window.location.href = item.href;
+      });
+      // hovering moves the selection, so only one item is highlighted at a time
+      div.addEventListener('mouseenter', () => {
+        const items = getDropdownItems();
+        updateSelection(items, [...items].indexOf(div));
       });
       dropdown.appendChild(div);
     });
