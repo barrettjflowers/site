@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,7 +105,7 @@
 <script>
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') html.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'dark') html.setAttribute('data-theme', savedTheme);
 
   const now = new Date();
   const weekday = now.toLocaleDateString('en-US', { weekday: 'short' });
@@ -113,7 +113,7 @@
   document.getElementById('today-date').textContent = `${weekday}, ${now.getDate()} ${month} ${now.getFullYear()}`;
 
   document.querySelector('.theme-toggle').addEventListener('click', () => {
-    const current = html.getAttribute('data-theme') || 'dark';
+    const current = html.getAttribute('data-theme') || 'light';
     const next = current === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);

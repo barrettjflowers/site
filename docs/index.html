@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
 <body>
 
 <div class="page-header">
-  <h2 class="user">@barrettjflowers</h2>
+  <h2 class="user"><a href="/">@barrettjflowers</a></h2>
   <div class="search-container">
     <input type="search" placeholder="search" class="search" id="search-input">
     <span class="search-shortcut" id="search-shortcut"></span>
   </div>
-  <p class="date"><svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Updated Tue, 10 Nov 2026 · 2 min read</p>
+  <p class="date"><svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Updated Fri, 13 Nov 2026 · 2 min read</p>
   <svg class="theme-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <circle cx="12" cy="12" r="5" class="sun"></circle>
     <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" class="sun"></path>
@@ -97,7 +97,7 @@
           <script>
             (() => {
               const g = document.createElement('script');
-              const theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+              const theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
               Object.entries({
                 src: 'https://giscus.app/client.js',
                 'data-repo': 'barrettjflowers/site',
@@ -361,14 +361,14 @@
   const toggle = document.querySelector('.theme-toggle');
   const html = document.documentElement;
   toggle.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme') || 'dark';
+    const current = html.getAttribute('data-theme') || 'light';
     const next = current === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     setGiscusTheme(next);
   });
   const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
+  if (saved === 'dark') {
     html.setAttribute('data-theme', saved);
   }
 
@@ -503,7 +503,7 @@
       dark: 'https://barrettjflowers.dev/style/giscus-dark.css',
       light: 'https://barrettjflowers.dev/style/giscus-light.css'
     };
-    const giscusTheme = map[theme] || 'https://barrettjflowers.dev/style/giscus-dark.css';
+    const giscusTheme = map[theme] || 'https://barrettjflowers.dev/style/giscus-light.css';
     const iframe = document.querySelector('iframe.giscus-frame');
     if (iframe && iframe.contentWindow) {
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');
